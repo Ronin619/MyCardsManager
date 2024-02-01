@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 const cardSchema = mongoose.Schema({
   set: {
@@ -14,7 +14,7 @@ const cardSchema = mongoose.Schema({
     required: true,
   },
   quantity: {
-    type: number,
+    type: Number,
     required: true,
   },
   value: {
@@ -22,4 +22,4 @@ const cardSchema = mongoose.Schema({
   },
 });
 
-export const card = mongoose.model("cardModel", cardSchema);
+module.exports = mongoose.model("cardModel", cardSchema);

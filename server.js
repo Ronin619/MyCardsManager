@@ -1,14 +1,14 @@
-import dotenv from "dotenv";
-import express from "express";
-import cors from "cors";
-import mongoose from "mongoose";
+require("dotenv").config({ path: "./.env.local" });
+const express = require("express");
 const app = express();
-
-//dotenv configs
-const { config } = dotenv;
-config({ path: "../.env.local" });
-const port = process.env.PORT || 3000;
+const mongoose = require("mongoose");
+const cors = require("cors");
+const port = process.env.PORT || 8080;
 const mongoURL = process.env.DATABASE_URL;
+
+const cardRoutes = require("./src/routes/cardRoutes");
+
+app.use("/createCard", cardRoutes);
 
 //middleware
 app.use(cors());
@@ -25,4 +25,4 @@ mongoose
     console.log(error);
   });
 
-export default app;
+module.exports = app;

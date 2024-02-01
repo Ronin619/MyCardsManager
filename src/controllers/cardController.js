@@ -1,6 +1,6 @@
-import cardModel from "../models/cardModel";
+const { cardModel } = require("../models/cardModel");
 
-const postCard = async (req, res) => {
+const createCard = async (req, res) => {
   try {
     const { name, set, cardNumber, quantity, value } = req.body;
     const newCard = new cardModel({
@@ -19,4 +19,4 @@ const postCard = async (req, res) => {
   }
 };
 
-export default postCard;
+module.exports = { createCard };
