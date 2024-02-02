@@ -1,5 +1,6 @@
 const cardModel = require("../models/cardModel");
 
+//POST: post new card
 const createCard = async (req, res) => {
   const { name, set, cardNumber, quantity, value } = req.body;
   try {
@@ -17,4 +18,11 @@ const createCard = async (req, res) => {
   }
 };
 
-module.exports = { createCard };
+//GET: Get all cards
+const findAllCards = async (req, res) => {
+  const allCards = await cardModel.find({});
+
+  res.status(200).json(allCards);
+};
+
+module.exports = { createCard, findAllCards };

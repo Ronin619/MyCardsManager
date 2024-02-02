@@ -12,6 +12,7 @@ app.use(express.json());
 
 const cardRoutes = require("./backend/src/routes/cardRoutes");
 
+app.use("/findAllCards", cardRoutes);
 app.use("/createCard", cardRoutes);
 
 mongoose
