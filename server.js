@@ -6,13 +6,13 @@ const cors = require("cors");
 const port = process.env.PORT || 8080;
 const mongoURL = process.env.DATABASE_URL;
 
-const cardRoutes = require("./src/routes/cardRoutes");
-
-app.use("/createCard", cardRoutes);
-
 //middleware
 app.use(cors());
 app.use(express.json());
+
+const cardRoutes = require("./backend/src/routes/cardRoutes");
+
+app.use("/createCard", cardRoutes);
 
 mongoose
   .connect(mongoURL)

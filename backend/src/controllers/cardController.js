@@ -1,8 +1,8 @@
-const { cardModel } = require("../models/cardModel");
+const cardModel = require("../models/cardModel");
 
 const createCard = async (req, res) => {
+  const { name, set, cardNumber, quantity, value } = req.body;
   try {
-    const { name, set, cardNumber, quantity, value } = req.body;
     const newCard = new cardModel({
       name,
       set,
@@ -10,12 +10,10 @@ const createCard = async (req, res) => {
       quantity,
       value,
     });
-    await newCard.save();
+    await cardModel.create(newCard);
     res.status(201).json(newCard);
   } catch (error) {
-    if (error) {
-      res.status(400).json({ error: error.message });
-    }
+    res.status(400).json({ error: error.message });
   }
 };
 
