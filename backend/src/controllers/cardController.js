@@ -9,7 +9,7 @@ const createCard = async (req, res) => {
       set,
       cardNumber,
       quantity,
-      value,
+      marketValue,
     });
     await cardModel.create(newCard);
     res.status(201).json(newCard);
