@@ -14,7 +14,8 @@ const cardRoutes = require("./backend/src/routes/cardRoutes");
 
 app.use("/findAllCards", cardRoutes);
 app.use("/createCard", cardRoutes);
-app.use("/deleteCard/:id", cardRoutes);
+app.use("/deleteCard", cardRoutes);
+app.use("/editCard", cardRoutes);
 
 mongoose
   .connect(mongoURL)

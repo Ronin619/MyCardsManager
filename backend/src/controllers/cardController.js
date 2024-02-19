@@ -25,6 +25,20 @@ const createCard = async (req, res) => {
   }
 };
 
+// Update card details
+const editCard = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const update = await cardModel.findByIdAndUpdate(id, req.body);
+    if (!update) {
+      return res.status(404).json({ error: "Card not found" });
+    }
+    res.status(200).json(update);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
 // Delete a card
 const deleteCard = async (req, res) => {
   const { id } = req.params;
@@ -34,17 +48,6 @@ const deleteCard = async (req, res) => {
     return res.status(400).json({ error: "card does not exist." });
   }
   res.status(200).json(result);
-  // try {
-  //   const { id } = req.params;
-  //   const result = await cardModel.findOneAndDelete({ _id: id });
-
-  //   if (!result) {
-  //     return res.status(404).json({ message: "The card does not exist" });
-  //   }
-  //   return res.status(200).send({ message: "Card successfully deleted." });
-  // } catch (error) {
-  //   res.status(500).send({ message: error.message });
-  // }
 };
 
-module.exports = { createCard, findAllCards, deleteCard };
+module.exports = { createCard, findAllCards, deleteCard, editCard };
