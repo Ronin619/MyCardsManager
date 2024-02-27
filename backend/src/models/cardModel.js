@@ -1,6 +1,10 @@
 const mongoose = require("mongoose");
 
 const cardSchema = mongoose.Schema({
+  userId: {
+    type: schema.Types.ObjectId,
+    ref: "usersModel",
+  },
   set: {
     type: String,
     required: true,
