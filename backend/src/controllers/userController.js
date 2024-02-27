@@ -35,4 +35,29 @@ const signUpNewUser = async (req, res) => {
   res.status(200).json(user);
 };
 
-module.exports = { signUpNewUser };
+const logInUser = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    // checks if all fields have been filled
+    if (!email || !password) {
+      throw Error("All fields must be filled.");
+    }
+
+    const user = await userModel.findOne({ email });
+    // checks if the user exist by provided email
+    if (!user) {
+      throw Error("Invalid email");
+    }
+
+    const validUserPassword = await bcrypt.compare(password, user.password);
+    // checks if the password is correct
+    if (!validUserPassword) {
+      throw Error("Incorrect password");
+    }
+    res.status(200).json(req.body);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
+module.exports = { signUpNewUser, logInUser };

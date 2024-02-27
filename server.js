@@ -17,6 +17,7 @@ app.use("/createCard", cardRoutes);
 app.use("/deleteCard", cardRoutes);
 app.use("/editCard", cardRoutes);
 app.use("/signUp", userRoutes);
+app.use("/logIn", userRoutes);
 
 mongoose
   .connect(mongoURL)
