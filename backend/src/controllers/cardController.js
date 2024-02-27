@@ -10,8 +10,10 @@ const findAllCards = async (req, res) => {
 //POST: post new card
 const createCard = async (req, res) => {
   const { name, set, cardNumber, quantity, marketValue } = req.body;
+  const user_id = req.userId;
   try {
     const newCard = new cardModel({
+      user_id,
       name,
       set,
       cardNumber,
