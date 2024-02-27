@@ -47,25 +47,21 @@ const signUpNewUser = async (req, res) => {
 };
 
 const logInUser = async (req, res) => {
+  const { email, password } = req.body;
+
   try {
-    const { email, password } = req.body;
-    // checks if all fields have been filled
-    if (!email || !password) {
-      throw Error("All fields must be filled.");
-    }
-
     const user = await userModel.findOne({ email });
-    // checks if the user exist by provided email
     if (!user) {
-      throw Error("Invalid email");
+      return res.status(400).json({ message: "User not found" });
+    }
+    const passwordMatch = await bcrypt.compare(password, user.password);
+    if (!passwordMatch) {
+      return res.status(401).json({ message: "Incorrect password" });
     }
 
-    const validUserPassword = await bcrypt.compare(password, user.password);
-    // checks if the password is correct
-    if (!validUserPassword) {
-      throw Error("Incorrect password");
-    }
-    res.status(200).json(req.body);
+    const token = createToken(user._id);
+
+    res.status(200).json({ email, token });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
