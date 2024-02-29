@@ -1,4 +1,4 @@
-const userModel = require("../models/userModel");
+const usersModel = require("../models/usersModel");
 const bcrypt = require("bcrypt");
 const validator = require("validator");
 const jwt = require("jsonwebtoken");
@@ -15,7 +15,7 @@ const signUpNewUser = async (req, res) => {
     if (!email || !password) {
       throw Error("All fields must be filled");
     }
-    const exists = await userModel.findOne({ email });
+    const exists = await usersModel.findOne({ email });
 
     if (exists) {
       throw Error("Email already in use");
@@ -37,7 +37,7 @@ const signUpNewUser = async (req, res) => {
     }
     const salt = await bcrypt.genSalt(12);
     const hash = await bcrypt.hash(password, salt);
-    const user = await userModel.create({ email, password: hash });
+    const user = await usersModel.create({ email, password: hash });
     const token = createToken(user._id);
 
     res.status(200).json({ user, token });
@@ -50,7 +50,7 @@ const logInUser = async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    const user = await userModel.findOne({ email });
+    const user = await usersModel.findOne({ email });
     if (!user) {
       return res.status(400).json({ message: "User not found" });
     }

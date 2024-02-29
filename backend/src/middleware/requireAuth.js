@@ -1,4 +1,4 @@
-const user = require("./Models/userModel");
+const user = require("../models/usersModel");
 const jwt = require("jsonwebtoken");
 
 // verify authentication
@@ -13,11 +13,15 @@ const requireAuth = async (req, res, next) => {
 
   try {
     const { _id } = jwt.verify(token, process.env.SECRET);
+    const foundUser = await user.findById(_id);
 
-    req.userId = await user.findOne({ _id }).select("_id");
+    if (!foundUser) {
+      return res.status(401).json({ error: "User not found" });
+    }
+    req.user = foundUser;
     next();
   } catch (error) {
-    console.log(error);
+    console.log("JWT verification error:", error);
     res.status(401).json({ error: "Request is not authorized" });
   }
 };

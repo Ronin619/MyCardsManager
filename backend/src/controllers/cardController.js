@@ -1,8 +1,11 @@
 const cardModel = require("../models/cardModel");
+const user = require("../models/usersModel");
+const requireAuth = require("../middleware/requireAuth");
 
 //GET: Get all cards
-const findAllCards = async (req, res) => {
-  const allCards = await cardModel.find({});
+const findAllUsersCards = async (req, res) => {
+  const user_id = req.user._id;
+  const allCards = await cardModel.find({ user_id });
 
   res.status(200).json(allCards);
 };
@@ -10,9 +13,10 @@ const findAllCards = async (req, res) => {
 //POST: post new card
 const createCard = async (req, res) => {
   const { name, set, cardNumber, quantity, marketValue } = req.body;
-  const user_id = req.userId;
+
   try {
-    const newCard = new cardModel({
+    const user_id = req.user._id;
+    const newCard = await cardModel.create({
       user_id,
       name,
       set,
@@ -20,7 +24,6 @@ const createCard = async (req, res) => {
       quantity,
       marketValue,
     });
-    await cardModel.create(newCard);
     res.status(201).json(newCard);
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -52,4 +55,4 @@ const deleteCard = async (req, res) => {
   res.status(200).json(result);
 };
 
-module.exports = { createCard, findAllCards, deleteCard, editCard };
+module.exports = { createCard, findAllUsersCards, deleteCard, editCard };

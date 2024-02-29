@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const cardController = require("../controllers/cardController");
 
-router.get("/", cardController.findAllCards);
+router.get("/", cardController.findAllUsersCards);
 router.post("/", cardController.createCard);
 router.delete("/:id", cardController.deleteCard);
 router.put("/:id", cardController.editCard);

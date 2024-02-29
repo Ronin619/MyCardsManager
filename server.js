@@ -7,17 +7,20 @@ const port = process.env.PORT || 8080;
 const mongoURL = process.env.DATABASE_URL;
 const cardRoutes = require("./backend/src/routes/cardRoutes");
 const userRoutes = require("./backend/src/routes/userRoutes");
+const { requireAuth } = require("./backend/src/middleware/requireAuth");
 
 //middleware
 app.use(cors());
 app.use(express.json());
 
-app.use("/findAllCards", cardRoutes);
+app.use("/signUp", userRoutes);
+app.use("/login", userRoutes);
+
+app.use(requireAuth);
+app.use("/findAllUsersCards", cardRoutes);
 app.use("/createCard", cardRoutes);
 app.use("/deleteCard", cardRoutes);
 app.use("/editCard", cardRoutes);
-app.use("/signUp", userRoutes);
-app.use("/login", userRoutes);
 
 mongoose
   .connect(mongoURL)
