@@ -1,7 +1,11 @@
 const cardModel = require("../models/cardModel");
-const { findAllUsersCards } = require("../controllers/cardController");
+const {
+  findAllUsersCards,
+  createCard,
+} = require("../controllers/cardController");
 const httpMocks = require("node-mocks-http");
 
+// FindAllUsersCards
 describe("findAllUsersCards", () => {
   it("should return all cards for the user", async () => {
     const userId = "123";
@@ -43,5 +47,32 @@ describe("findAllUsersCards", () => {
 
     expect(res.statusCode).toBe(200);
     expect(res._getJSONData()).toEqual(cards);
+  });
+});
+
+// CreateCard
+describe("createCard", () => {
+  it("should post a new card", async () => {
+    const userId = "123";
+    const req = httpMocks.createRequest({
+      body: {
+        name: "Charizard EX",
+        set: "Scarlet & Violet 151",
+        cardNumber: "199",
+        quantity: 2,
+        marketValue: "114.99",
+      },
+      user: { _id: userId },
+    });
+
+    const res = httpMocks.createResponse();
+    const mockCard = { ...req.body, user_id: req.user._id };
+
+    cardModel.create = jest.fn().mockResolvedValue(mockCard);
+
+    await createCard(req, res);
+
+    expect(res.statusCode).toBe(201);
+    expect(res._getJSONData()).toEqual(mockCard);
   });
 });
