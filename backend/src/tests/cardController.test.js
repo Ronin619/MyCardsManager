@@ -2,6 +2,7 @@ const cardModel = require("../models/cardModel");
 const {
   findAllUsersCards,
   createCard,
+  editCard,
 } = require("../controllers/cardController");
 const httpMocks = require("node-mocks-http");
 
@@ -74,5 +75,32 @@ describe("createCard", () => {
 
     expect(res.statusCode).toBe(201);
     expect(res._getJSONData()).toEqual(mockCard);
+  });
+});
+
+// editCard
+
+describe("editCard", () => {
+  it("should edit an existing card", async () => {
+    const cardId = "3435dkkhkjhfc";
+    const updatedCard = {
+      _id: cardId,
+      quantity: 1,
+      marketValue: "$120.00",
+    };
+
+    const req = httpMocks.createRequest({
+      params: { id: cardId },
+      body: updatedCard,
+    });
+
+    const res = httpMocks.createResponse();
+
+    cardModel.findByIdAndUpdate = jest.fn().mockResolvedValue(updatedCard);
+
+    await editCard(req, res);
+
+    expect(res.statusCode).toBe(200);
+    expect(res._getJSONData()).toEqual(updatedCard);
   });
 });
