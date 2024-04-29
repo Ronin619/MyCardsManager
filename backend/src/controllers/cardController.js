@@ -48,7 +48,7 @@ const editCard = async (req, res) => {
 const deleteCard = async (req, res) => {
   const { id } = req.params;
 
-  const result = await cardModel.findOneAndDelete(id);
+  const result = await cardModel.findOneAndDelete({ _id: id });
   if (!result) {
     return res.status(400).json({ error: "card does not exist." });
   }
