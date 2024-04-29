@@ -2,7 +2,7 @@ const cardModel = require("../models/cardModel");
 const user = require("../models/usersModel");
 const requireAuth = require("../middleware/requireAuth");
 
-//GET: Get all cards
+//GET: Get all cards by user
 const findAllUsersCards = async (req, res) => {
   const user_id = req.user._id;
   const allCards = await cardModel.find({ user_id });
