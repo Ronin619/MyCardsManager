@@ -3,6 +3,7 @@ const {
   findAllUsersCards,
   createCard,
   editCard,
+  deleteCard,
 } = require("../controllers/cardController");
 const httpMocks = require("node-mocks-http");
 
@@ -121,5 +122,23 @@ describe("editCard", () => {
 
     expect(res.statusCode).toBe(404);
     expect(res._getJSONData()).toEqual({ error: "Card not found" });
+  });
+});
+
+//deleteCard
+describe.only("deleteCard", () => {
+  it("should delete an existing card", async () => {
+    const cardId = "355ttkjgd97u5";
+    const req = httpMocks.createRequest({
+      params: { id: cardId },
+    });
+    const res = httpMocks.createResponse();
+
+    cardModel.findOneAndDelete = jest.fn().mockResolvedValue({ id: cardId });
+
+    await deleteCard(req, res);
+
+    expect(res.statusCode).toBe(200);
+    expect(res._getJSONData()).toEqual({ id: cardId });
   });
 });
