@@ -79,7 +79,6 @@ describe("createCard", () => {
 });
 
 // editCard
-
 describe("editCard", () => {
   it("should edit an existing card", async () => {
     const cardId = "3435dkkhkjhfc";
@@ -102,5 +101,25 @@ describe("editCard", () => {
 
     expect(res.statusCode).toBe(200);
     expect(res._getJSONData()).toEqual(updatedCard);
+  });
+
+  it("should handle card not found", async () => {
+    const cardId = "355ttkjgd97u5";
+
+    const req = httpMocks.createRequest({
+      params: { id: cardId },
+      body: {
+        quantity: 1,
+        marketValue: "$120.00",
+      },
+    });
+    const res = httpMocks.createResponse();
+
+    cardModel.findByIdAndUpdate = jest.fn().mockResolvedValue(null);
+
+    await editCard(req, res);
+
+    expect(res.statusCode).toBe(404);
+    expect(res._getJSONData()).toEqual({ error: "Card not found" });
   });
 });
