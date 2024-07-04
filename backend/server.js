@@ -1,13 +1,13 @@
-require("dotenv").config({ path: "./.env.local" });
+require("dotenv").config({ path: "../.env.local" });
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const cors = require("cors");
 const port = process.env.PORT || 8080;
 const mongoURL = process.env.DATABASE_URL;
-const cardRoutes = require("./backend/src/routes/cardRoutes");
-const userRoutes = require("./backend/src/routes/userRoutes");
-const { requireAuth } = require("./backend/src/middleware/requireAuth");
+const cardRoutes = require("./src/routes/cardRoutes");
+const userRoutes = require("./src/routes/userRoutes");
+const { requireAuth } = require("./src/middleware/requireAuth");
 
 //middleware
 app.use(cors());

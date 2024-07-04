@@ -126,7 +126,7 @@ describe("editCard", () => {
 });
 
 //deleteCard
-describe.only("deleteCard", () => {
+describe("deleteCard", () => {
   it("should delete an existing card", async () => {
     const cardId = "355ttkjgd97u5";
     const req = httpMocks.createRequest({
