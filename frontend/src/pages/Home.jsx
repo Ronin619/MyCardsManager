@@ -10,9 +10,9 @@ const Home = () => {
   };
 
   return (
-    <>
+    <div className="login-form">
       <h2>Login</h2>
-      <form className="login" onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <label htmlFor="email">email</label>
         <input
           type="email"
@@ -32,7 +32,7 @@ const Home = () => {
       <p>
         Don&apos;t have an account? <a href="/signup">sign up</a>
       </p>
-    </>
+    </div>
   );
 };
 
