@@ -1,7 +1,7 @@
-import Login from "./Login";
+import Home from "./pages/Home";
 
 const App = () => {
-  return <Login />;
+  return <Home />;
 };
 
 export default App;
