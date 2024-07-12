@@ -13,11 +13,12 @@ const Home = () => {
     <div className="login-form">
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="email">email</label>
+        <label htmlFor="email">Email</label>
         <input
           type="email"
           placeholder="youremail@gmail.com"
           value={email}
+          id="email"
           onChange={(e) => setEmail(e.target.value)}
         />
         <label htmlFor="password">password</label>
@@ -25,6 +26,7 @@ const Home = () => {
           type="password"
           placeholder="********"
           value={password}
+          id="password"
           onChange={(e) => setPassword(e.target.value)}
         />
         <button>Login In</button>
