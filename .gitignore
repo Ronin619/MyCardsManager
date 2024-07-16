@@ -145,3 +145,7 @@ dist
 *.njsproj
 *.sln
 *.sw?
+
+# SSL Certificates
+server.cert
+server.key 

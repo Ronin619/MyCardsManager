@@ -1,4 +1,5 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import axios from "axios";
 
 const Home = () => {
   const [email, setEmail] = useState("");
@@ -6,7 +7,18 @@ const Home = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(email, password);
+    try {
+      const response = await axios.post(
+        "https://localhost:8080/login/loginUser",
+        {
+          email,
+          password,
+        }
+      );
+      console.log("Login successful:", response.data);
+    } catch (error) {
+      console.log("Unsuccessful login");
+    }
   };
 
   return (
