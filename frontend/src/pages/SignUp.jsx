@@ -8,16 +8,13 @@ const SignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
-        "https://localhost:8080/login/loginUser",
-        {
-          email,
-          password,
-        }
-      );
-      console.log("Login successful:", response.data);
+      const response = await axios.post("https://localhost:8080/signUp/user", {
+        email,
+        password,
+      });
+      console.log("Sign up successful:", response.data);
     } catch (error) {
-      console.log("Unsuccessful login");
+      console.log("Unsuccessful sign up");
     }
   };
 
