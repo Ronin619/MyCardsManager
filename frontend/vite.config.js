@@ -9,6 +9,6 @@ export default defineConfig({
       key: fs.readFileSync("../backend/server.key"),
       cert: fs.readFileSync("../backend/server.cert"),
     },
-    plugins: [react()],
   },
+  plugins: [react()],
 });
