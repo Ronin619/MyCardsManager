@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 const Home = () => {
@@ -44,7 +45,7 @@ const Home = () => {
         <button>Login In</button>
       </form>
       <p>
-        Don&apos;t have an account? <a href="/signup">sign up</a>
+        Don&apos;t have an account? <Link to="/signup">sign up</Link>
       </p>
     </div>
   );

@@ -1,8 +1,11 @@
-import Home from "./pages/Home";
-import SignUp from "./pages/SignUp";
+import AppRouter from "./AppRouter";
 
 const App = () => {
-  return <Home />;
+  return (
+    <div>
+      <AppRouter />
+    </div>
+  );
 };
 
 export default App;
