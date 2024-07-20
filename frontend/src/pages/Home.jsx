@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Button from "../components/Button";
 
 const Home = () => {
   const [email, setEmail] = useState("");
@@ -45,7 +46,8 @@ const Home = () => {
           id="password"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button>Login In</button>
+        <Button text="Login" />
+        {/*<button>Login In</button>*/}
       </form>
       <p>
         Don&apos;t have an account? <Link to="/signup">sign up</Link>
