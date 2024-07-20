@@ -47,7 +47,6 @@ const Home = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
         <Button text="Login" />
-        {/*<button>Login In</button>*/}
       </form>
       <p>
         Don&apos;t have an account? <Link to="/signup">sign up</Link>

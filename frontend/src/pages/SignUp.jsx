@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import Button from "../components/Button";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -39,7 +40,7 @@ const SignUp = () => {
           id="password"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button>Sign Up</button>
+        <Button text="Sign up" />
       </form>
     </div>
   );
