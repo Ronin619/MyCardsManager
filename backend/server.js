@@ -24,7 +24,13 @@ const credentials = {
 const httpsServer = https.createServer(credentials, app);
 
 //middleware
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://localhost:5173",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 app.use(express.json());
 
 app.use("/signUp", userRoutes);
