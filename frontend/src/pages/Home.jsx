@@ -17,12 +17,13 @@ const Home = () => {
         {
           email,
           password,
-        }
+        },
+        { withCredentials: true }
       );
       console.log("Login successful:", response.data);
       navigate("/inventory");
     } catch (error) {
-      console.log("Unsuccessful login");
+      console.log("Unsuccessful login", error);
     }
   };
 
@@ -46,7 +47,7 @@ const Home = () => {
           id="password"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <Button text="Login" />
+        <Button text="Login" type="submit" />
       </form>
       <p>
         Don&apos;t have an account? <Link to="/signup">sign up</Link>
