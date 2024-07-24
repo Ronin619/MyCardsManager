@@ -1,5 +1,7 @@
 import { useState } from "react";
 import Button from "../components/Button";
+import axios from "axios";
+import Cookies from "js-cookie";
 
 const AddCards = () => {
   const [set, setSet] = useState("");
@@ -8,8 +10,29 @@ const AddCards = () => {
   const [quantity, setQuantity] = useState("");
   const [marketValue, setMarketValue] = useState("");
 
-  const handleSubmitCard = () => {
-    console.log("card added");
+  const handleSubmitCard = async (e) => {
+    e.preventDefault();
+    try {
+      const authToken = Cookies.get("authToken");
+      const response = await axios.post(
+        "https://localhost:8080/createCard/newCard",
+        {
+          set,
+          name,
+          cardNumber,
+          quantity,
+          marketValue,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${authToken}`, // Ensure authToken is correctly set
+          },
+        }
+      );
+      console.log(response.data);
+    } catch (error) {
+      console.log("Card not saved", error);
+    }
   };
 
   return (
@@ -51,7 +74,7 @@ const AddCards = () => {
           id="marketValue"
           onChange={(e) => setMarketValue(e.target.value)}
         />
-        <Button text="Add Card" />
+        <Button text="Add Card" type="Submit" />
       </form>
     </div>
   );
