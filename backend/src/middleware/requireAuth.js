@@ -3,13 +3,14 @@ const jwt = require("jsonwebtoken");
 
 // verify authentication
 const requireAuth = async (req, res, next) => {
-  const { authorization } = req.headers;
+  const authHeader = req.headers.authorization;
 
-  if (!authorization) {
+  if (!authHeader) {
+    console.log("No token found in cookies");
     return res.status(401).json({ error: "Authorization token required" });
   }
 
-  const token = authorization.split(" ")[1];
+  const token = authHeader.split(" ")[1];
 
   try {
     const { _id } = jwt.verify(token, process.env.SECRET);
