@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const https = require("https");
 const fs = require("fs");
+const cookieParser = require("cookie-parser");
 const port = process.env.PORT || 8080;
 const mongoURL = process.env.DATABASE_URL;
 const cardRoutes = require("./src/routes/cardRoutes");
@@ -31,16 +32,17 @@ app.use(
     credentials: true,
   })
 );
+app.use(cookieParser());
 app.use(express.json());
 
 app.use("/signUp", userRoutes);
 app.use("/login", userRoutes);
 
 app.use(requireAuth);
-app.use("/findAllUsersCards", cardRoutes);
-app.use("/createCard", cardRoutes);
-app.use("/deleteCard", cardRoutes);
-app.use("/editCard", cardRoutes);
+app.use("/findAllUsersCards", requireAuth, cardRoutes);
+app.use("/createCard", requireAuth, cardRoutes);
+app.use("/deleteCard", requireAuth, cardRoutes);
+app.use("/editCard", requireAuth, cardRoutes);
 
 mongoose
   .connect(mongoURL)
