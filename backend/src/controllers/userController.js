@@ -61,13 +61,7 @@ const logInUser = async (req, res) => {
 
     const token = createToken(user._id);
 
-    res.cookie("authToken", token, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
-    });
-
-    res.status(200).json({ email, token });
+    res.status(200).json({ message: "Login successful", token });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }

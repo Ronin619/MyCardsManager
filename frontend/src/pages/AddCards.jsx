@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Button from "../components/Button";
 import axios from "axios";
-import Cookies from "js-cookie";
 
 const AddCards = () => {
   const [set, setSet] = useState("");
@@ -13,7 +12,7 @@ const AddCards = () => {
   const handleSubmitCard = async (e) => {
     e.preventDefault();
     try {
-      const authToken = Cookies.get("authToken");
+      const authToken = localStorage.getItem("authToken");
       const response = await axios.post(
         "https://localhost:8080/createCard/newCard",
         {
@@ -25,7 +24,7 @@ const AddCards = () => {
         },
         {
           headers: {
-            Authorization: `Bearer ${authToken}`, // Ensure authToken is correctly set
+            Authorization: `Bearer ${authToken}`,
           },
         }
       );
