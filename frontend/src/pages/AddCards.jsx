@@ -1,13 +1,20 @@
 import { useState } from "react";
 import Button from "../components/Button";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const AddCards = () => {
+  const navigate = useNavigate();
+
   const [set, setSet] = useState("");
   const [name, setName] = useState("");
   const [cardNumber, setCardNumber] = useState("");
   const [quantity, setQuantity] = useState("");
   const [marketValue, setMarketValue] = useState("");
+
+  const handleGoToInventory = () => {
+    navigate(-1);
+  };
 
   const handleSubmitCard = async (e) => {
     e.preventDefault();
@@ -74,6 +81,7 @@ const AddCards = () => {
           onChange={(e) => setMarketValue(e.target.value)}
         />
         <Button text="Add Card" type="Submit" />
+        <Button text="go back" onClick={handleGoToInventory} />
       </form>
     </div>
   );
