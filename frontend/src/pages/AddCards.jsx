@@ -37,7 +37,7 @@ const AddCards = () => {
 
   return (
     <div className="login-form">
-      <h2>Login</h2>
+      <h2>Add a new card</h2>
       <form onSubmit={handleSubmitCard}>
         <label htmlFor="set">Set</label>
         <input
