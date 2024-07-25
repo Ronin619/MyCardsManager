@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
-import Cookies from "js-cookie";
 
 const Home = () => {
   const [email, setEmail] = useState("");
@@ -18,14 +17,12 @@ const Home = () => {
         {
           email,
           password,
-        },
-        { withCredentials: true }
+        }
       );
-      const authToken = Cookies.get("authToken");
+      const { token } = response.data;
+      localStorage.setItem("authToken", token);
       console.log("Login successful:", response.data);
-      if (authToken) {
-        navigate("/inventory");
-      }
+      navigate("/inventory");
     } catch (error) {
       console.log("Unsuccessful login", error);
     }
