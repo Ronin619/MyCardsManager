@@ -17,10 +17,10 @@ const Home = () => {
         {
           email,
           password,
-        }
+        },
+        { withCredentials: true }
       );
-      const { token } = response.data;
-      localStorage.setItem("authToken", token);
+
       console.log("Login successful:", response.data);
       navigate("/inventory");
     } catch (error) {

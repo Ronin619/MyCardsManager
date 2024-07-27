@@ -19,7 +19,6 @@ const AddCards = () => {
   const handleSubmitCard = async (e) => {
     e.preventDefault();
     try {
-      const authToken = localStorage.getItem("authToken");
       const response = await axios.post(
         "https://localhost:8080/createCard/newCard",
         {
@@ -29,11 +28,7 @@ const AddCards = () => {
           quantity,
           marketValue,
         },
-        {
-          headers: {
-            Authorization: `Bearer ${authToken}`,
-          },
-        }
+        { withCredentials: true }
       );
       console.log(response.data);
     } catch (error) {
