@@ -37,6 +37,7 @@ app.use(express.json());
 
 app.use("/signUp", userRoutes);
 app.use("/login", userRoutes);
+app.use("/logout", userRoutes);
 
 app.use(requireAuth);
 app.use("/findAllUsersCards", requireAuth, cardRoutes);
