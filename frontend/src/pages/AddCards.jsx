@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Button from "../components/Button";
+import LogoutButton from "../components/LogoutButton";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -77,6 +78,7 @@ const AddCards = () => {
         />
         <Button text="Add Card" type="Submit" />
         <Button text="go back" onClick={handleGoToInventory} />
+        <LogoutButton />
       </form>
     </div>
   );

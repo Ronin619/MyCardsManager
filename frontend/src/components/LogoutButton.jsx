@@ -1,17 +1,18 @@
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import Button from "./Button";
+import { useNavigate } from "react-router-dom";
 
 const LogoutButton = () => {
   const navigate = useNavigate();
 
   const handleLogout = async () => {
     try {
-      await axios.post(
+      const response = await axios.post(
         "https://localhost:8080/logout/logoutUser",
         {},
         { withCredentials: true }
       );
+      console.log(response.data);
       navigate("/home");
     } catch (error) {
       console.error("Logout failed", error);
