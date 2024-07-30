@@ -10,6 +10,7 @@ const port = process.env.PORT || 8080;
 const mongoURL = process.env.DATABASE_URL;
 const cardRoutes = require("./src/routes/cardRoutes");
 const userRoutes = require("./src/routes/userRoutes");
+const tokenRoutes = require("./src/routes/tokenRoutes");
 const { requireAuth } = require("./src/middleware/requireAuth");
 
 // Load SSL certificates
@@ -38,6 +39,7 @@ app.use(express.json());
 app.use("/signUp", userRoutes);
 app.use("/login", userRoutes);
 app.use("/logout", userRoutes);
+app.use("/verifyToken", tokenRoutes);
 
 app.use(requireAuth);
 app.use("/findAllUsersCards", requireAuth, cardRoutes);
