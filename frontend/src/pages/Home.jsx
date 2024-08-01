@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
+import "../styles.css";
+import appLogo from "../images/appLogo.png";
 
 const Home = () => {
   const [email, setEmail] = useState("");
@@ -29,30 +31,37 @@ const Home = () => {
   };
 
   return (
-    <div className="login-form">
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="email">Email</label>
-        <input
-          type="email"
-          placeholder="youremail@gmail.com"
-          value={email}
-          id="email"
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <label htmlFor="password">password</label>
-        <input
-          type="password"
-          placeholder="********"
-          value={password}
-          id="password"
-          onChange={(e) => setPassword(e.target.value)}
-        />
+    <div className="login-container">
+      <img src={appLogo} className="appLogo" alt="image of the app logo" />
+      <div className="login-form">
+        <h2>Login</h2>
+        <form onSubmit={handleSubmit}>
+          <div className="input-box">
+            <ion-icon name="mail-outline"></ion-icon>
+            <input
+              type="email"
+              placeholder="youremail@gmail.com"
+              value={email}
+              id="email"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div className="input-box">
+            <ion-icon name="key-outline"></ion-icon>
+            <input
+              type="password"
+              placeholder="********"
+              value={password}
+              id="password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+        </form>
         <Button text="Login" type="submit" />
-      </form>
-      <p>
-        Don&apos;t have an account? <Link to="/signup">sign up</Link>
-      </p>
+        <p>
+          Don&apos;t have an account? <Link to="/signup">sign up</Link>
+        </p>
+      </div>
     </div>
   );
 };
