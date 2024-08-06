@@ -1,1 +1,3 @@
-hello;
+const Table = () => {};
+
+export default Table;
