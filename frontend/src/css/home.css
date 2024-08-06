@@ -1,28 +1,40 @@
+html,
 body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.home-page-container {
   background: linear-gradient(to bottom, red, white);
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .horizontal-line {
   position: absolute;
-  top: 50%;
+  top: 47%;
   left: 0;
-  width: 100%;
+  right: 0;
   height: 30px;
   background-color: black;
-  transform: translateY(-50%);
   z-index: 1;
 }
 
 .login-container {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin-bottom: 100px;
   align-items: center;
   height: 100vh;
+  z-index: 2;
 }
 
 .login-form {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -33,7 +45,6 @@ body {
   margin-top: 40px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   background-color: #f9f9f9;
-  z-index: 2;
 }
 
 .login-form h2 {
