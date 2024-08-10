@@ -32,6 +32,11 @@ const AddCards = () => {
         { withCredentials: true }
       );
       console.log(response.data);
+      setSet("");
+      setName("");
+      setCardNumber("");
+      setQuantity("");
+      setMarketValue("");
     } catch (error) {
       console.log("Card not saved", error);
     }
