@@ -6,7 +6,6 @@ const requireAuth = async (req, res, next) => {
   const authToken = req.cookies.authToken;
 
   if (!authToken) {
-    console.log("No token found in cookies");
     return res.status(401).json({ error: "Authorization token required" });
   }
 
