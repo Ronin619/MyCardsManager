@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Button from "../components/Button";
 import "../css/table.css";
 
 const Table = () => {
@@ -23,6 +24,14 @@ const Table = () => {
     cardData();
   }, []);
 
+  const handleEdit = () => {
+    console.log("Edit");
+  };
+
+  const handleDelete = () => {
+    console.log("Delete");
+  };
+
   return (
     <div className="card-table-container">
       <table className="table">
@@ -45,8 +54,12 @@ const Table = () => {
               <td>{card.quantity}</td>
               <td>{card.marketValue}</td>
               <td className="actions">
-                <ion-icon name="pencil"></ion-icon>
-                <ion-icon name="trash"></ion-icon>
+                <span onClick={handleEdit}>
+                  <ion-icon name="pencil"></ion-icon>
+                </span>
+                <span onClick={handleDelete}>
+                  <ion-icon name="trash"></ion-icon>
+                </span>
               </td>
             </tr>
           ))}
