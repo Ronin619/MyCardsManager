@@ -4,10 +4,15 @@ const requireAuth = require("../middleware/requireAuth");
 
 //GET: Get all cards by user
 const findAllUsersCards = async (req, res) => {
-  const user_id = req.user._id;
-  const allCards = await cardModel.find({ user_id });
+  try {
+    const user_id = req.user._id;
+    const allCards = await cardModel.find({ user_id });
 
-  res.status(200).json(allCards);
+    res.status(200).json(allCards);
+  } catch (error) {
+    console.error("Error fetching user cards:", error);
+    res.status(500).json({ error: "Server error while fetching user cards" });
+  }
 };
 
 //POST: post new card
