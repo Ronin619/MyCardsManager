@@ -33,7 +33,7 @@ const Table = () => {
   const handleSave = async (updatedCard) => {
     try {
       await axios.put(
-        `https://localhost:8080/editCard//${selectedCardId}`,
+        `https://localhost:8080/editCard/${selectedCardId}`,
         updatedCard,
         { withCredentials: true }
       );
@@ -48,8 +48,17 @@ const Table = () => {
     }
   };
 
-  const handleDelete = () => {
-    console.log("Delete");
+  const handleDelete = async (cardId) => {
+    try {
+      await axios.delete(`https://localhost:8080/deleteCard/${cardId}`, {
+        withCredentials: true,
+      });
+      setCards((prevCards) => {
+        return prevCards.filter((card) => card._id !== cardId);
+      });
+    } catch (error) {
+      console.error("Card deletion unsuccessful", error);
+    }
   };
 
   return (
@@ -77,7 +86,7 @@ const Table = () => {
                 <span onClick={() => handleEdit(card._id)}>
                   <ion-icon name="pencil"></ion-icon>
                 </span>
-                <span onClick={handleDelete}>
+                <span onClick={() => handleDelete(card._id)}>
                   <ion-icon name="trash"></ion-icon>
                 </span>
               </td>
