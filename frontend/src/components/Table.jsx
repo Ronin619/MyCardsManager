@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Button from "../components/Button";
 import "../css/table.css";
+import Modal from "./Modal";
 
 const Table = () => {
   const [cards, setCards] = useState([]);
+  const [selectedCardId, setSelectedCardId] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const cardData = async () => {
@@ -15,7 +17,6 @@ const Table = () => {
             withCredentials: true,
           }
         );
-        console.log(response.data);
         setCards(response.data);
       } catch (error) {
         console.error("fetch cards unsucessful", error);
@@ -24,8 +25,27 @@ const Table = () => {
     cardData();
   }, []);
 
-  const handleEdit = () => {
-    console.log("Edit");
+  const handleEdit = (cardId) => {
+    setSelectedCardId(cardId);
+    setIsModalOpen(true);
+  };
+
+  const handleSave = async (updatedCard) => {
+    try {
+      await axios.put(
+        `https://localhost:8080/editCard//${selectedCardId}`,
+        updatedCard,
+        { withCredentials: true }
+      );
+      setCards((prevCards) => {
+        return prevCards.map((card) =>
+          card._id === selectedCardId ? { ...card, ...updatedCard } : card
+        );
+      });
+      setIsModalOpen(false);
+    } catch (error) {
+      console.error("Card update unsuccessful", error);
+    }
   };
 
   const handleDelete = () => {
@@ -54,7 +74,7 @@ const Table = () => {
               <td>{card.quantity}</td>
               <td>{card.marketValue}</td>
               <td className="actions">
-                <span onClick={handleEdit}>
+                <span onClick={() => handleEdit(card._id)}>
                   <ion-icon name="pencil"></ion-icon>
                 </span>
                 <span onClick={handleDelete}>
@@ -65,6 +85,12 @@ const Table = () => {
           ))}
         </tbody>
       </table>
+      <Modal
+        show={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        cardDetails={cards.find((card) => card._id === selectedCardId)}
+        onSave={handleSave}
+      />
     </div>
   );
 };
