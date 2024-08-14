@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
-const Modal = ({ show, onClose, cardDetails, onSave }) => {
+const Modal = ({ show, onClose, cardDetails, onSave, onUpdate, heading }) => {
   const [name, setName] = useState("");
   const [set, setSet] = useState("");
   const [cardNumber, setCardNumber] = useState("");
@@ -15,18 +15,38 @@ const Modal = ({ show, onClose, cardDetails, onSave }) => {
       setCardNumber(cardDetails.cardNumber);
       setQuantity(cardDetails.quantity);
       setMarketValue(cardDetails.marketValue);
+    } else {
+      setName("");
+      setSet("");
+      setCardNumber("");
+      setQuantity("");
+      setMarketValue("");
     }
   }, [cardDetails]);
 
   const handleSaveClick = () => {
-    const updatedCard = {
+    const cardDetails = {
       name,
       set,
       cardNumber,
       quantity,
       marketValue,
     };
-    onSave(updatedCard);
+
+    const resetForm = () => {
+      setName("");
+      setSet("");
+      setCardNumber("");
+      setQuantity("");
+      setMarketValue("");
+    };
+
+    if (onUpdate) {
+      onUpdate(cardDetails);
+    } else {
+      onSave(cardDetails);
+      resetForm();
+    }
   };
 
   if (!show) {
@@ -36,7 +56,7 @@ const Modal = ({ show, onClose, cardDetails, onSave }) => {
   return (
     <div>
       <div>
-        <h2>Edit Card</h2>
+        <h2>{heading}</h2>
         <form>
           <div>
             <label>Set</label>
@@ -101,7 +121,9 @@ Modal.propTypes = {
   cardDetails: PropTypes.object,
   onClose: PropTypes.func,
   onSave: PropTypes.func,
+  onUpdate: PropTypes.func,
   show: PropTypes.bool,
+  heading: PropTypes.string,
 };
 
 export default Modal;

@@ -23,14 +23,14 @@ const Table = () => {
       }
     };
     cardData();
-  }, []);
+  }, [cards]);
 
   const handleEdit = (cardId) => {
     setSelectedCardId(cardId);
     setIsModalOpen(true);
   };
 
-  const handleSave = async (updatedCard) => {
+  const handleUpdate = async (updatedCard) => {
     try {
       await axios.put(
         `https://localhost:8080/editCard/${selectedCardId}`,
@@ -98,7 +98,8 @@ const Table = () => {
         show={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         cardDetails={cards.find((card) => card._id === selectedCardId)}
-        onSave={handleSave}
+        onUpdate={handleUpdate}
+        heading="Edit Card"
       />
     </div>
   );

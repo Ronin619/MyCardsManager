@@ -1,13 +1,25 @@
+import { useState } from "react";
 import Button from "../components/Button";
 import LogoutButton from "../components/LogoutButton";
 import Table from "../components/Table";
-import { useNavigate } from "react-router-dom";
+import Modal from "../components/Modal";
+import axios from "axios";
 
 const Inventory = () => {
-  const navigate = useNavigate();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleAddCards = () => {
-    navigate("/addCards");
+  const handleAddCards = async (newCard) => {
+    setIsModalOpen(true);
+    try {
+      const response = await axios.post(
+        "https://localhost:8080/createCard/newCard",
+        newCard,
+        { withCredentials: true }
+      );
+      console.log(response.data);
+    } catch (error) {
+      console.log("Card not saved", error);
+    }
   };
 
   return (
@@ -16,6 +28,12 @@ const Inventory = () => {
       <Button text="Add Cards" onClick={handleAddCards} />
       <LogoutButton />
       <Table />
+      <Modal
+        show={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onSave={handleAddCards}
+        heading="Add Card"
+      />
     </>
   );
 };
