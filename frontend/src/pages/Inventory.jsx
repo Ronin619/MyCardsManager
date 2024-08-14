@@ -3,6 +3,7 @@ import Button from "../components/Button";
 import LogoutButton from "../components/LogoutButton";
 import Table from "../components/Table";
 import Modal from "../components/Modal";
+import Header from "../components/Header";
 import axios from "axios";
 
 const Inventory = () => {
@@ -24,7 +25,7 @@ const Inventory = () => {
 
   return (
     <>
-      <h1>Welcome!</h1>
+      <Header />
       <Button text="Add Cards" onClick={handleAddCards} />
       <LogoutButton />
       <Table />
