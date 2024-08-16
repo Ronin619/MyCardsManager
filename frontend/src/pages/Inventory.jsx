@@ -2,7 +2,7 @@ import { useState } from "react";
 import Button from "../components/Button";
 import Table from "../components/Table";
 import Modal from "../components/Modal";
-import Header from "../components/Header";
+import Navbar from "../components/Navbar";
 import axios from "axios";
 
 const Inventory = () => {
@@ -24,7 +24,7 @@ const Inventory = () => {
 
   return (
     <>
-      <Header />
+      <Navbar />
       <Button text="Add Cards" onClick={handleAddCards} />
       <Table />
       <Modal
