@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Button from "../components/Button";
-import LogoutButton from "../components/LogoutButton";
 import Table from "../components/Table";
 import Modal from "../components/Modal";
 import Header from "../components/Header";
@@ -27,7 +26,6 @@ const Inventory = () => {
     <>
       <Header />
       <Button text="Add Cards" onClick={handleAddCards} />
-      <LogoutButton />
       <Table />
       <Modal
         show={isModalOpen}
