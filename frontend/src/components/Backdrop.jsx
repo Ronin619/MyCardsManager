@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import "../css/backdrop.css"; // Import the CSS file for backdrop styling
+import "../css/backdrop.css";
 
 const Backdrop = ({ show }) => {
   if (!show) return null;

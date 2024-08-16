@@ -33,6 +33,12 @@ const Hamburgermenu = () => {
         <nav>
           <ul>
             <li>
+              <a href="#getStarted" onClick={handleLogout}>
+                Get Started
+              </a>
+              <a href="#about" onClick={handleLogout}>
+                About
+              </a>
               <a href="#home" onClick={handleLogout}>
                 Logout
               </a>
