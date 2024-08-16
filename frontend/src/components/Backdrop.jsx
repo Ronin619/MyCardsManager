@@ -9,7 +9,6 @@ const Backdrop = ({ show }) => {
 
 Backdrop.propTypes = {
   show: PropTypes.bool,
-  onClick: PropTypes.func,
 };
 
 export default Backdrop;
