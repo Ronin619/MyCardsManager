@@ -34,7 +34,7 @@ const Home = () => {
     <div className="home-page-container">
       <div className="horizontal-line"></div>
       <div className="login-container">
-        <img src={appLogo} className="appLogo" alt="image of the app logo" />
+        <img src={appLogo} alt="image of the app logo" />
         <div className="login-form">
           <h2>Login</h2>
           <form onSubmit={handleSubmit}>

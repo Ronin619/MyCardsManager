@@ -4,6 +4,7 @@ import Table from "../components/Table";
 import Modal from "../components/Modal";
 import Navbar from "../components/Navbar";
 import axios from "axios";
+import vault from "../images/vault.png";
 import "../css/inventory.css";
 
 const Inventory = () => {
@@ -27,6 +28,7 @@ const Inventory = () => {
     <div className="inv">
       <Navbar />
       <Button text="Add Cards" onClick={handleAddCards} />
+      <img src={vault} className="vault" alt="image of the word vault" />
       <Table />
       <Modal
         show={isModalOpen}
