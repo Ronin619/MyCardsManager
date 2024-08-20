@@ -13,7 +13,7 @@
   position: absolute;
   top: 100%;
   right: 0;
-  background-color: #326da8;
+  background-color: #362d5c;
   width: 150px;
   z-index: 10;
 }
@@ -35,5 +35,5 @@
 }
 
 .list-items a:hover {
-  background-color: blue;
+  background-color: #a25c7e;
 }
