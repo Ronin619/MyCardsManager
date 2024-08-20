@@ -4,6 +4,7 @@ import Table from "../components/Table";
 import Modal from "../components/Modal";
 import Navbar from "../components/Navbar";
 import axios from "axios";
+import "../css/inventory.css";
 
 const Inventory = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -23,7 +24,7 @@ const Inventory = () => {
   };
 
   return (
-    <>
+    <div className="inv">
       <Navbar />
       <Button text="Add Cards" onClick={handleAddCards} />
       <Table />
@@ -33,7 +34,7 @@ const Inventory = () => {
         onSave={handleAddCards}
         heading="Add Card"
       />
-    </>
+    </div>
   );
 };
 
