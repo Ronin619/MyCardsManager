@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import "../css/navbar.css";
+import "../css/hamburgerMenu.css";
 
 const Hamburgermenu = () => {
   const navigate = useNavigate();
