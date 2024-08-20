@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "../css/navbar.css";
 
 const Hamburgermenu = () => {
   const navigate = useNavigate();
@@ -26,12 +27,12 @@ const Hamburgermenu = () => {
 
   return (
     <div>
-      <button onClick={toggleMenu}>
+      <button className="hamburger-menu" onClick={toggleMenu}>
         <ion-icon name="menu-sharp"></ion-icon>
       </button>
       {isOpen ? (
-        <nav>
-          <ul>
+        <nav className="dropdown-menu">
+          <ul className="list-items">
             <li>
               <a href="#getStarted" onClick={handleLogout}>
                 Get Started

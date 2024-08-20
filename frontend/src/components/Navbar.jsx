@@ -1,9 +1,9 @@
 import Hamburgermenu from "./HamburgerMenu";
-import "../css/header.css";
+import "../css/navbar.css";
 
 const Navbar = () => {
   return (
-    <header className="header">
+    <header className="navbar">
       <h1>Welcome!</h1>
       <Hamburgermenu />
     </header>
