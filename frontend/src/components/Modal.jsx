@@ -26,6 +26,17 @@ const Modal = ({ show, onClose, cardDetails, onSave, onUpdate, heading }) => {
     }
   }, [cardDetails]);
 
+  const handleChange = (e) => {
+    let value = e.target.value;
+    value = value.replace(/[^0-9.]/g, "");
+    setMarketValue(value);
+  };
+
+  const formatValue = (value) => {
+    if (!value) return "";
+    return `$${value}`;
+  };
+
   const handleSaveClick = () => {
     const cardDetails = {
       name,
@@ -104,8 +115,8 @@ const Modal = ({ show, onClose, cardDetails, onSave, onUpdate, heading }) => {
                 <input
                   type="text"
                   name="marketValue"
-                  value={`$${marketValue}`}
-                  onChange={(e) => setMarketValue(e.target.value)}
+                  value={formatValue(marketValue)}
+                  onChange={handleChange}
                 />
               </div>
             </div>
