@@ -1,12 +1,12 @@
 .card-table-container {
   display: flex;
   justify-content: center;
-  padding: 20px;
+  margin-top: 40px;
+  width: 100%;
 }
 
 .table {
-  width: 100%;
-  max-width: 800px;
+  width: 80%;
   border-collapse: collapse;
   margin: 0 auto;
 }

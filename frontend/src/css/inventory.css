@@ -1,4 +1,5 @@
 .inv {
+  position: relative;
   background: linear-gradient(to bottom, #8984a4, #a25c7e);
   min-height: 100vh;
 }
@@ -8,4 +9,19 @@
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.table-container {
+  position: relative;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.add-card-btn {
+  position: absolute;
+  top: 30px;
+  right: 200px;
+  font-size: 40px;
+  color: #362d5c;
+  margin-left: 20px;
 }

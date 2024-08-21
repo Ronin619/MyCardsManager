@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Button from "../components/Button";
 import Table from "../components/Table";
 import Modal from "../components/Modal";
 import Navbar from "../components/Navbar";
@@ -27,9 +26,15 @@ const Inventory = () => {
   return (
     <div className="inv">
       <Navbar />
-      <Button text="Add Cards" onClick={handleAddCards} />
       <img src={vault} className="vault" alt="image of the word vault" />
-      <Table />
+      <div className="table-container">
+        <span className="add-card-btn" onClick={handleAddCards}>
+          <ion-icon name="add-circle"></ion-icon>
+        </span>
+        <div className="card-table-container">
+          <Table />
+        </div>
+      </div>
       <Modal
         show={isModalOpen}
         onClose={() => setIsModalOpen(false)}
