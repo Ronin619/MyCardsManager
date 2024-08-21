@@ -17,11 +17,16 @@
   padding: 20px;
 }
 
+.searchBar-tableBtn-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+  margin-left: 20%;
+  margin-top: 30px;
+}
+
 .add-card-btn {
-  position: absolute;
-  top: 30px;
-  right: 200px;
   font-size: 40px;
   color: #362d5c;
-  margin-left: 20px;
+  cursor: pointer;
 }

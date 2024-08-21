@@ -5,7 +5,7 @@ const SearchBar = () => {
   return (
     <div className="search-container">
       <div className="search-wrapper">
-        <input className="search-bar" type="text" />
+        <input className="search-bar" placeholder="search" type="text" />
         <span className="search-icon">
           <ion-icon name="search"></ion-icon>
         </span>

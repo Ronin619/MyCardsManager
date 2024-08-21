@@ -29,10 +29,12 @@ const Inventory = () => {
       <Navbar />
       <img src={vault} className="vault" alt="image of the word vault" />
       <div className="table-container">
-        <SearchBar />
-        <span className="add-card-btn" onClick={handleAddCards}>
-          <ion-icon name="add-circle"></ion-icon>
-        </span>
+        <div className="searchBar-tableBtn-wrapper">
+          <SearchBar />
+          <span className="add-card-btn" onClick={handleAddCards}>
+            <ion-icon name="add-circle"></ion-icon>
+          </span>
+        </div>
         <div className="card-table-container">
           <Table />
         </div>
