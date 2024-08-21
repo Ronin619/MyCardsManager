@@ -4,6 +4,7 @@ import Modal from "../components/Modal";
 import Navbar from "../components/Navbar";
 import axios from "axios";
 import vault from "../images/vault.png";
+import SearchBar from "../components/SearchBar";
 import "../css/inventory.css";
 
 const Inventory = () => {
@@ -28,6 +29,7 @@ const Inventory = () => {
       <Navbar />
       <img src={vault} className="vault" alt="image of the word vault" />
       <div className="table-container">
+        <SearchBar />
         <span className="add-card-btn" onClick={handleAddCards}>
           <ion-icon name="add-circle"></ion-icon>
         </span>
