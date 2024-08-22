@@ -1,29 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import axios from "axios";
 import "../css/table.css";
+import PropTypes from "prop-types";
 import Modal from "./Modal";
 
-const Table = () => {
-  const [cards, setCards] = useState([]);
+const Table = ({ cards, setCards }) => {
   const [selectedCardId, setSelectedCardId] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  useEffect(() => {
-    const cardData = async () => {
-      try {
-        const response = await axios.get(
-          "https://localhost:8080/findAllUsersCards/",
-          {
-            withCredentials: true,
-          }
-        );
-        setCards(response.data);
-      } catch (error) {
-        console.error("fetch cards unsucessful", error);
-      }
-    };
-    cardData();
-  }, [cards]);
 
   const handleEdit = (cardId) => {
     setSelectedCardId(cardId);
@@ -109,6 +92,20 @@ const Table = () => {
       />
     </div>
   );
+};
+
+Table.propTypes = {
+  cards: PropTypes.arrayOf(
+    PropTypes.shape({
+      _id: PropTypes.string,
+      set: PropTypes.string,
+      name: PropTypes.string,
+      cardNumber: PropTypes.number,
+      quantity: PropTypes.number,
+      marketValue: PropTypes.string,
+    })
+  ),
+  setCards: PropTypes.func,
 };
 
 export default Table;

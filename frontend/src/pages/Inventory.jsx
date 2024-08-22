@@ -9,6 +9,28 @@ import "../css/inventory.css";
 
 const Inventory = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [cards, setCards] = useState([]);
+  const [isAllCardsVisible, setIsAllCardsVisible] = useState(false);
+
+  const handleShowAllCards = async () => {
+    if (isAllCardsVisible) {
+      setCards([]);
+      setIsAllCardsVisible(false);
+    } else {
+      try {
+        const response = await axios.get(
+          "https://localhost:8080/findAllUsersCards/",
+          {
+            withCredentials: true,
+          }
+        );
+        setCards(response.data);
+        setIsAllCardsVisible(true);
+      } catch (error) {
+        console.error("fetch cards unsucessful", error);
+      }
+    }
+  };
 
   const handleAddCards = async (newCard) => {
     setIsModalOpen(true);
@@ -32,7 +54,7 @@ const Inventory = () => {
         <div className="searchBar-tableBtn-wrapper">
           <SearchBar />
           <div className="table-btns">
-            <span className="load-all-cards-btn" onClick={handleAddCards}>
+            <span className="load-all-cards-btn" onClick={handleShowAllCards}>
               <ion-icon name="file-tray-full"></ion-icon>
             </span>
             <span className="add-card-btn" onClick={handleAddCards}>
@@ -41,7 +63,7 @@ const Inventory = () => {
           </div>
         </div>
         <div className="card-table-container">
-          <Table />
+          <Table cards={cards} setCards={setCards} />
         </div>
       </div>
       <Modal
