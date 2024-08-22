@@ -25,6 +25,17 @@
   margin-top: 30px;
 }
 
+.table-btns {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.load-all-cards-btn {
+  color: #000000;
+  font-size: 40px;
+}
+
 .add-card-btn {
   font-size: 40px;
   color: #362d5c;

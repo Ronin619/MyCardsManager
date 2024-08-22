@@ -31,9 +31,14 @@ const Inventory = () => {
       <div className="table-container">
         <div className="searchBar-tableBtn-wrapper">
           <SearchBar />
-          <span className="add-card-btn" onClick={handleAddCards}>
-            <ion-icon name="add-circle"></ion-icon>
-          </span>
+          <div className="table-btns">
+            <span className="load-all-cards-btn" onClick={handleAddCards}>
+              <ion-icon name="file-tray-full"></ion-icon>
+            </span>
+            <span className="add-card-btn" onClick={handleAddCards}>
+              <ion-icon name="add-circle"></ion-icon>
+            </span>
+          </div>
         </div>
         <div className="card-table-container">
           <Table />
