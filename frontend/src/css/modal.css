@@ -61,6 +61,7 @@ h2 {
   border: none;
   border-radius: 50px;
   font-size: 16px;
+  cursor: pointer;
 }
 
 .form-btn-primary {
@@ -71,4 +72,8 @@ h2 {
 .form-btn-secondary {
   background-color: #0000a3;
   color: #ffffff;
+}
+
+.form-btn-primary .form-btn-secondary {
+  cursor: pointer;
 }
