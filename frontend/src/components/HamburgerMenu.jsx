@@ -25,6 +25,18 @@ const Hamburgermenu = () => {
     }
   };
 
+  const handleGetStarted = () => {
+    console.log("handleGetStarted");
+  };
+
+  const handleInventoryValue = () => {
+    console.log("handleInventoryValue");
+  };
+
+  const handleAbout = () => {
+    console.log("handleAbout");
+  };
+
   return (
     <div>
       <button className="hamburger-menu" onClick={toggleMenu}>
@@ -34,10 +46,13 @@ const Hamburgermenu = () => {
         <nav className="dropdown-menu">
           <ul className="list-items">
             <li>
-              <a href="#getStarted" onClick={handleLogout}>
+              <a href="#getStarted" onClick={handleGetStarted}>
                 Get Started
               </a>
-              <a href="#about" onClick={handleLogout}>
+              <a href="#inventoryValue" onClick={handleInventoryValue}>
+                Inventory Value
+              </a>
+              <a href="#about" onClick={handleAbout}>
                 About
               </a>
               <a href="#home" onClick={handleLogout}>
