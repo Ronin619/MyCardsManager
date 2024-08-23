@@ -30,9 +30,17 @@
 .actions {
   display: flex;
   justify-content: space-evenly;
-  font-size: 20px;
 }
 
 .action-icons {
   cursor: pointer;
+  font-size: 20px;
+}
+
+.action-icon-edit {
+  color: #ffc300;
+}
+
+.action-icon-delete {
+  color: #d22b2b;
 }

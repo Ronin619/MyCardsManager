@@ -67,13 +67,13 @@ const Table = ({ cards, setCards }) => {
               <td>{card.marketValue}</td>
               <td className="actions">
                 <span
-                  className="action-icons"
+                  className="action-icons action-icon-edit"
                   onClick={() => handleEdit(card._id)}
                 >
                   <ion-icon name="pencil"></ion-icon>
                 </span>
                 <span
-                  className="action-icons"
+                  className="action-icons action-icon-delete"
                   onClick={() => handleDelete(card._id)}
                 >
                   <ion-icon name="trash"></ion-icon>
