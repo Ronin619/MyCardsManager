@@ -1,14 +1,7 @@
-import { useState } from "react";
 import "../css/searchBar.css";
 import PropTypes from "prop-types";
 
-const SearchBar = ({ showFilteredCards }) => {
-  const [searchInput, setSearchInput] = useState("");
-
-  const handleInputChange = (e) => {
-    setSearchInput(e.target.value);
-  };
-
+const SearchBar = ({ showFilteredCards, searchInput, setSearchInput }) => {
   return (
     <div className="search-container">
       <div className="search-wrapper">
@@ -16,7 +9,8 @@ const SearchBar = ({ showFilteredCards }) => {
           className="search-bar"
           placeholder="search"
           type="text"
-          onChange={handleInputChange}
+          value={searchInput}
+          onChange={(e) => setSearchInput(e.target.value)}
         />
         <span
           className="search-icon"
@@ -31,6 +25,8 @@ const SearchBar = ({ showFilteredCards }) => {
 
 SearchBar.propTypes = {
   showFilteredCards: PropTypes.func,
+  searchInput: PropTypes.string,
+  setSearchInput: PropTypes.string,
 };
 
 export default SearchBar;

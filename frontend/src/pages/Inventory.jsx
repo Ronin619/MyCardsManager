@@ -10,6 +10,7 @@ import "../css/inventory.css";
 const Inventory = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [cards, setCards] = useState([]);
+  const [searchInput, setSearchInput] = useState("");
   const [isAllCardsVisible, setIsAllCardsVisible] = useState(false);
 
   const handleShowAllCards = async () => {
@@ -56,6 +57,7 @@ const Inventory = () => {
         }
       );
       setCards(response.data);
+      setSearchInput("");
     } catch (error) {
       console.error("fetch filtered cards unsucessful", error);
     }
@@ -67,7 +69,11 @@ const Inventory = () => {
       <img src={vault} className="vault" alt="image of the word vault" />
       <div className="table-container">
         <div className="searchBar-tableBtn-wrapper">
-          <SearchBar showFilteredCards={showFilteredCards} />
+          <SearchBar
+            showFilteredCards={showFilteredCards}
+            searchInput={searchInput}
+            setSearchInput={setSearchInput}
+          />
           <div className="table-btns">
             <span className="load-all-cards-btn" onClick={handleShowAllCards}>
               <ion-icon name="file-tray-full"></ion-icon>
