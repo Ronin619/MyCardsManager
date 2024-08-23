@@ -15,6 +15,40 @@ const findAllUsersCards = async (req, res) => {
   }
 };
 
+//GET: Filter cards
+const filteredCards = async (req, res) => {
+  try {
+    const user_id = req.user._id;
+    if (!user_id) {
+      return res.status(400).send("User ID is required");
+    }
+
+    const { search } = req.query;
+
+    if (!search) {
+      return res.status(404).send("Search cannot be blank");
+    }
+
+    const query = {
+      user_id,
+      $or: [
+        { set: search },
+        { name: search },
+        { cardNumber: search },
+        { quantity: search },
+        { marketValue: search },
+      ],
+    };
+
+    const cards = await cardModel.find(query);
+
+    res.json(cards);
+  } catch (error) {
+    console.error("Error fetching cards:", error);
+    res.status(500).send("Server Error");
+  }
+};
+
 //POST: post new card
 const createCard = async (req, res) => {
   const { name, set, cardNumber, quantity, marketValue } = req.body;
@@ -60,4 +94,10 @@ const deleteCard = async (req, res) => {
   res.status(200).json(result);
 };
 
-module.exports = { createCard, findAllUsersCards, deleteCard, editCard };
+module.exports = {
+  createCard,
+  findAllUsersCards,
+  deleteCard,
+  editCard,
+  filteredCards,
+};

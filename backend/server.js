@@ -43,6 +43,7 @@ app.use("/verifyToken", tokenRoutes);
 
 app.use(requireAuth);
 app.use("/findAllUsersCards", requireAuth, cardRoutes);
+app.use("/filteredCards", requireAuth, cardRoutes);
 app.use("/createCard", requireAuth, cardRoutes);
 app.use("/deleteCard", requireAuth, cardRoutes);
 app.use("/editCard", requireAuth, cardRoutes);

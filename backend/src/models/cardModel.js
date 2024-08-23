@@ -15,11 +15,11 @@ const cardSchema = mongoose.Schema({
     required: true,
   },
   cardNumber: {
-    type: Number,
+    type: String,
     required: true,
   },
   quantity: {
-    type: Number,
+    type: String,
     required: true,
   },
   marketValue: {

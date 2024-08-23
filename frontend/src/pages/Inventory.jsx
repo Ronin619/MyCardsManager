@@ -46,13 +46,28 @@ const Inventory = () => {
     }
   };
 
+  const showFilteredCards = async (searchInput) => {
+    try {
+      const response = await axios.get(
+        `https://localhost:8080/filteredCards/filter?search=${searchInput}`,
+        {
+          params: { search: searchInput },
+          withCredentials: true,
+        }
+      );
+      setCards(response.data);
+    } catch (error) {
+      console.error("fetch filtered cards unsucessful", error);
+    }
+  };
+
   return (
     <div className="inv">
       <Navbar />
       <img src={vault} className="vault" alt="image of the word vault" />
       <div className="table-container">
         <div className="searchBar-tableBtn-wrapper">
-          <SearchBar />
+          <SearchBar showFilteredCards={showFilteredCards} />
           <div className="table-btns">
             <span className="load-all-cards-btn" onClick={handleShowAllCards}>
               <ion-icon name="file-tray-full"></ion-icon>
