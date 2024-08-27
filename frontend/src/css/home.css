@@ -1,6 +1,5 @@
 html,
 body {
-  height: 100%;
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
@@ -9,7 +8,7 @@ body {
 .home-page-container {
   min-height: 100vh;
   display: flex;
-  flex-direction: column; /* Stack items vertically */
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 20px;
@@ -21,6 +20,7 @@ body {
 
 .logo-image {
   max-width: 80%;
+  position: absolute;
   top: 80px;
   left: 50%;
   transform: translateX(-50%);
