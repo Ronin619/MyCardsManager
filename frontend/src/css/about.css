@@ -35,3 +35,18 @@
   background-color: #0d9af8;
   font-family: "Pokemon Solid", sans-serif;
 }
+
+@media (min-width: 1024px) {
+  .about-p {
+    max-width: 500px; /* Adjust width as needed */
+    font-size: 20px; /* Adjust font size */
+    padding: 40px; /* Adjust padding */
+    margin-bottom: 100px; /* Adjust margin if needed */
+    position: relative; /* Ensure proper vertical centering */
+    height: 50vh; /* Adjust height to make it more vertical */
+    display: flex; /* Use flexbox to center content vertically */
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+    text-align: center; /* Ensure text is centered */
+  }
+}
