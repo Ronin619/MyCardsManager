@@ -1,13 +1,19 @@
 import Hamburgermenu from "./HamburgerMenu";
 import "../css/navbar.css";
+import PropTypes from "prop-types";
 
-const Navbar = () => {
+const Navbar = ({ className, h1 }) => {
   return (
-    <header className="navbar">
-      <h1>Welcome!</h1>
+    <header className={`navbar ${className}`}>
+      <h1>{h1}</h1>
       <Hamburgermenu />
     </header>
   );
+};
+
+Navbar.propTypes = {
+  h1: PropTypes.string,
+  className: PropTypes.string,
 };
 
 export default Navbar;

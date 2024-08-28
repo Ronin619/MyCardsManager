@@ -34,7 +34,7 @@ const Hamburgermenu = () => {
   };
 
   const handleAbout = () => {
-    console.log("handleAbout");
+    navigate("/about");
   };
 
   return (
