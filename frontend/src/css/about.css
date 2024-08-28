@@ -38,15 +38,15 @@
 
 @media (min-width: 1024px) {
   .about-p {
-    max-width: 500px; /* Adjust width as needed */
-    font-size: 20px; /* Adjust font size */
-    padding: 40px; /* Adjust padding */
-    margin-bottom: 100px; /* Adjust margin if needed */
-    position: relative; /* Ensure proper vertical centering */
-    height: 50vh; /* Adjust height to make it more vertical */
-    display: flex; /* Use flexbox to center content vertically */
-    align-items: center; /* Center content vertically */
-    justify-content: center; /* Center content horizontally */
-    text-align: center; /* Ensure text is centered */
+    max-width: 500px;
+    font-size: 20px;
+    padding: 10px;
+    margin-bottom: 100px;
+    position: relative;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
 }
