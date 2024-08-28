@@ -1,0 +1,137 @@
+.signUp-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  padding: 20px;
+  box-sizing: border-box;
+  background: linear-gradient(to bottom, #000, #daf111);
+}
+
+.signUp-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  background: #000;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgb(243, 242, 242);
+}
+
+.signUp-h1 {
+  color: #daf111;
+  font-size: 28px;
+  box-shadow: 0 4px 6px #000;
+}
+
+.signUp-form h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  font-family: "Pokemon Solid", sans-serif;
+}
+
+.signUp-h1,
+.signUp-form h2 {
+  font-family: "Pokemon Solid", sans-serif;
+}
+
+.signUp-form p {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.signUp-form label {
+  display: block;
+  margin-bottom: 5px;
+  margin-left: 10px;
+  font-size: 14px;
+}
+
+.signUp-form input {
+  width: 80%;
+  padding: 12px;
+  margin-bottom: 15px;
+  margin-left: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.signUp-form button {
+  display: block;
+  width: 80%;
+  padding: 12px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #daf111;
+  color: #000;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.signUp-form label,
+.signUp-form p,
+.signUp-form h2 {
+  color: #daf111;
+}
+
+.signUp-form button:hover {
+  background-color: #0056b3;
+}
+
+@media (min-width: 600px) {
+  .signUp-form {
+    max-width: 400px;
+    margin: 30px auto;
+  }
+
+  .signUp-form h2 {
+    font-size: 28px;
+  }
+
+  .signUp-form p {
+    font-size: 16px;
+  }
+
+  .signUp-form label {
+    margin-left: 20px;
+  }
+
+  .signUp-form input {
+    font-size: 18px;
+    margin-left: 20px;
+  }
+
+  .signUp-form button {
+    font-size: 18px;
+    margin-left: 30px;
+  }
+}
+
+@media (min-width: 768px) {
+  .signUp-form {
+    max-width: 500px;
+    padding: 30px;
+  }
+
+  .signUp-form h2 {
+    font-size: 32px;
+  }
+
+  .signUp-form p {
+    font-size: 18px;
+  }
+
+  .signUp-form input {
+    font-size: 20px;
+  }
+
+  .signUp-form button {
+    font-size: 20px;
+  }
+}
