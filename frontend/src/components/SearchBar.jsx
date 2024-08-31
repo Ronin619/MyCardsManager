@@ -4,21 +4,19 @@ import PropTypes from "prop-types";
 const SearchBar = ({ showFilteredCards, searchInput, setSearchInput }) => {
   return (
     <div className="search-container">
-      <div className="search-wrapper">
-        <input
-          className="search-bar"
-          placeholder="search"
-          type="text"
-          value={searchInput}
-          onChange={(e) => setSearchInput(e.target.value)}
-        />
-        <span
-          className="search-icon"
-          onClick={() => showFilteredCards(searchInput)}
-        >
-          <ion-icon name="search"></ion-icon>
-        </span>
-      </div>
+      <input
+        className="search-bar"
+        placeholder="search"
+        type="text"
+        value={searchInput}
+        onChange={(e) => setSearchInput(e.target.value)}
+      />
+      <span
+        className="search-icon"
+        onClick={() => showFilteredCards(searchInput)}
+      >
+        <ion-icon name="search"></ion-icon>
+      </span>
     </div>
   );
 };
