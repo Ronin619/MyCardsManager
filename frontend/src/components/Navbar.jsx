@@ -1,4 +1,4 @@
-import Hamburgermenu from "./HamburgerMenu";
+import HamburgerMenu from "./HamburgerMenu";
 import "../css/navbar.css";
 import PropTypes from "prop-types";
 
@@ -6,7 +6,7 @@ const Navbar = ({ className, h1 }) => {
   return (
     <header className={`navbar ${className}`}>
       <h1>{h1}</h1>
-      <Hamburgermenu />
+      <HamburgerMenu />
     </header>
   );
 };

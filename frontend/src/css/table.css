@@ -19,12 +19,12 @@
 }
 
 .table th {
-  background-color: #f4f4f4; /* Light background for header cells */
-  font-weight: bold; /* Make header text bold */
+  background-color: #f4f4f4;
+  font-weight: bold;
 }
 
 .table td {
-  background-color: #fff; /* White background for table data */
+  background-color: #fff;
 }
 
 .actions {

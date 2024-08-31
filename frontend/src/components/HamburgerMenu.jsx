@@ -1,9 +1,10 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
 import "../css/hamburgerMenu.css";
 
-const Hamburgermenu = () => {
+const HamburgerMenu = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -26,7 +27,7 @@ const Hamburgermenu = () => {
   };
 
   const handleGetStarted = () => {
-    console.log("handleGetStarted");
+    navigate("/getStarted");
   };
 
   const handleTotalValue = () => {
@@ -75,4 +76,8 @@ const Hamburgermenu = () => {
   );
 };
 
-export default Hamburgermenu;
+HamburgerMenu.propTypes = {
+  className: PropTypes.string,
+};
+
+export default HamburgerMenu;

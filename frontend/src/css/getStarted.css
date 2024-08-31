@@ -1,0 +1,115 @@
+.get-started-navbar {
+  background-color: #000;
+  font-family: "Pokemon Solid", sans-serif;
+}
+
+.get-started-container .dropdown-menu {
+  background-color: #000;
+}
+
+.get-started-container {
+  height: 100vh;
+  overflow-y: auto;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  background: linear-gradient(to bottom, #0047ab, #fff);
+}
+
+.instruction-body {
+  font-family: Arial, sans-serif;
+  background-color: #c0c0c0;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.instruction-body h1 {
+  color: #0047ab;
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.instruction-body p,
+.instruction-body li,
+.instruction-body ol {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.instruction-body ul,
+.instruction-body ol {
+  list-style-type: none;
+  padding-left: 20px;
+}
+
+.instruction-body li::before {
+  color: #0047ab;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+.instruction-body h2 {
+  color: #0047ab;
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.instruction-body ion-icon {
+  color: #0047ab;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.instruction-warning {
+  color: #ff0000;
+  font-weight: bold;
+}
+
+ion-icon[name="file-tray-full"] {
+  color: #000;
+}
+
+ion-icon[name="add-circle"] {
+  color: #362d5c;
+}
+
+ion-icon[name="pencil"] {
+  color: #ffc300;
+}
+
+ion-icon[name="trash"] {
+  color: #d22b2b;
+}
+
+ion-icon[name="search"] {
+  color: #808080;
+}
+
+@media (min-width: 600px) {
+  .instruction-body {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 30px;
+  }
+
+  .instruction-body h1 {
+    font-size: 28px;
+  }
+
+  .instruction-body h2 {
+    font-size: 24px;
+  }
+
+  .instruction-body p,
+  .instruction-body li,
+  .instruction-body ol {
+    font-size: 18px;
+  }
+}
