@@ -13,6 +13,26 @@ const Table = ({ cards, setCards }) => {
     setIsModalOpen(true);
   };
 
+  const handleCheckboxChange = async (e, cardId) => {
+    const isChecked = e.target.checked;
+
+    setCards((prevCards) =>
+      prevCards.map((card) =>
+        card._id === cardId ? { ...card, grading: isChecked } : card
+      )
+    );
+
+    try {
+      await axios.put(
+        `https://localhost:8080/editCard/${cardId}`,
+        { grading: isChecked },
+        { withCredentials: true }
+      );
+    } catch (error) {
+      console.error("Checkbox state update unsuccessful", error);
+    }
+  };
+
   const handleUpdate = async (updatedCard) => {
     try {
       await axios.put(
@@ -54,6 +74,7 @@ const Table = ({ cards, setCards }) => {
             <th>Card Number</th>
             <th>Quantity</th>
             <th>Market Value</th>
+            <th>Grading</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -65,6 +86,13 @@ const Table = ({ cards, setCards }) => {
               <td>{card.cardNumber}</td>
               <td>{card.quantity}</td>
               <td>{card.marketValue}</td>
+              <td>
+                <input
+                  type="checkbox"
+                  checked={card.grading || false}
+                  onChange={(e) => handleCheckboxChange(e, card._id)}
+                />
+              </td>
               <td className="actions">
                 <span
                   className="action-icons action-icon-edit"
@@ -103,6 +131,7 @@ Table.propTypes = {
       cardNumber: PropTypes.number,
       quantity: PropTypes.number,
       marketValue: PropTypes.string,
+      grading: PropTypes.bool,
     })
   ),
   setCards: PropTypes.func,
