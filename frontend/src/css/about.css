@@ -34,6 +34,7 @@
 .about-navbar {
   background-color: #0d9af8;
   font-family: "Pokemon Solid", sans-serif;
+  letter-spacing: 4px;
 }
 
 @media (min-width: 1024px) {
