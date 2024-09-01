@@ -65,7 +65,7 @@ const Inventory = () => {
 
   return (
     <div className="inv">
-      <Navbar />
+      <Navbar h1="inventory" className="inventory-navbar" />
       <img src={vault} className="vault" alt="image of the word vault" />
       <div className="table-container">
         <div className="searchBar-tableBtn-wrapper">

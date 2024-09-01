@@ -5,6 +5,11 @@
   margin: 0;
 }
 
+.inventory-navbar {
+  font-family: "Pokemon Solid", sans-serif;
+  letter-spacing: 3px;
+}
+
 .vault {
   display: flex;
   margin-top: 20px;
