@@ -25,6 +25,10 @@ const cardSchema = mongoose.Schema({
   marketValue: {
     type: String,
   },
+  grading: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 module.exports = mongoose.model("cardModel", cardSchema);
