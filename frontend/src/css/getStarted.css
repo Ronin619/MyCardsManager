@@ -1,6 +1,7 @@
 .get-started-navbar {
   background-color: #000;
   font-family: "Pokemon Solid", sans-serif;
+  letter-spacing: 3px;
 }
 
 .get-started-container .dropdown-menu {
