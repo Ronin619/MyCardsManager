@@ -31,7 +31,7 @@ const HamburgerMenu = () => {
   };
 
   const handleTotalValue = () => {
-    console.log("handleInventoryValue");
+    navigate("/totalValue");
   };
 
   const handleToInventory = () => {
@@ -57,7 +57,7 @@ const HamburgerMenu = () => {
               <a href="#totalValue" onClick={handleTotalValue}>
                 Total Value
               </a>
-              <a href="#totalToInventory" onClick={handleToInventory}>
+              <a href="#Inventory" onClick={handleToInventory}>
                 Inventory
               </a>
               <a href="#about" onClick={handleAbout}>

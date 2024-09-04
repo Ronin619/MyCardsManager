@@ -4,6 +4,7 @@ import SignUp from "./pages/SignUp";
 import Inventory from "./pages/Inventory";
 import About from "./pages/About";
 import GetStarted from "./pages/GetStarted";
+import TotalValue from "./pages/TotalValue";
 import ProtectedRoutes from "./components/ProtectedRoutes";
 
 const AppRouter = () => {
@@ -17,6 +18,7 @@ const AppRouter = () => {
         <Route path="/GetStarted" element={<GetStarted />} />
         <Route element={<ProtectedRoutes />}>
           <Route path="/inventory" element={<Inventory />} />
+          <Route path="/totalValue" element={<TotalValue />} />
         </Route>
       </Routes>
     </BrowserRouter>
