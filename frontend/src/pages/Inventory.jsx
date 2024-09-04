@@ -41,7 +41,8 @@ const Inventory = () => {
         newCard,
         { withCredentials: true }
       );
-      console.log(response.data);
+      const addedCard = response.data;
+      setCards((prevCards) => [...prevCards, addedCard]);
     } catch (error) {
       console.log("Card not saved", error);
     }
