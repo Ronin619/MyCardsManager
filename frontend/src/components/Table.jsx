@@ -64,6 +64,13 @@ const Table = ({ cards, setCards }) => {
     }
   };
 
+  const formatCurrency = (value) => {
+    if (!value) return "$0.00";
+    const number = parseFloat(value);
+    if (isNaN(number)) return "$0.00";
+    return `$${number.toFixed(2)}`;
+  };
+
   return (
     <div className="card-table-container">
       <table className="table">
@@ -85,7 +92,7 @@ const Table = ({ cards, setCards }) => {
               <td>{card.name}</td>
               <td>{card.cardNumber}</td>
               <td>{card.quantity}</td>
-              <td>{card.marketValue}</td>
+              <td>{formatCurrency(card.marketValue)}</td>
               <td>
                 <input
                   type="checkbox"
