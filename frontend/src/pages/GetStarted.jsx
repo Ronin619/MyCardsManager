@@ -6,7 +6,7 @@ const GetStarted = () => {
   return (
     <div className="get-started-container">
       <Navbar h1="Get Started" className="get-started-navbar">
-        <HamburgerMenu className="getStarted-dropDown" />
+        <HamburgerMenu />
       </Navbar>
       <div className="instruction-container">
         <div className="instruction-body">
@@ -15,7 +15,6 @@ const GetStarted = () => {
             Welcome! Here you will find instructions on how to utilize the app
             features to manage your trading card inventory.
           </p>
-
           <div className="instruction-section">
             <h2 className="instruction-heading">
               View your entire card collection
