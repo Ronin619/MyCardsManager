@@ -65,7 +65,6 @@ const Table = ({ cards, setCards }) => {
   };
 
   const formatCurrency = (value) => {
-    if (!value) return "$0.00";
     const number = parseFloat(value);
     if (isNaN(number)) return "$0.00";
     return `$${number.toFixed(2)}`;
