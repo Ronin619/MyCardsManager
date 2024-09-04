@@ -1,9 +1,10 @@
 //import { useState } from "react";
+import Navbar from "../components/Navbar";
 
 const TotalValue = () => {
   return (
     <div>
-      <h1>Hello!</h1>
+      <Navbar h1="Total Value" className="totalValue-navbar" />
     </div>
   );
 };
