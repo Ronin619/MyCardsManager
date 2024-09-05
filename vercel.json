@@ -5,6 +5,9 @@
       "use": "@vercel/static-build",
       "config": { "distDir": "frontend/dist" }
     },
-    { "src": "backend/package.json", "use": "@vercel/node" }
+    {
+      "src": "backend/package.json",
+      "use": "@vercel/node"
+    }
   ]
 }
