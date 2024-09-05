@@ -73,7 +73,7 @@ const Table = ({ cards, setCards }) => {
   return (
     <div className="card-table-container">
       <table className="table">
-        <thead>
+        <thead className="table-header">
           <tr>
             <th>Set</th>
             <th>Name</th>
@@ -84,9 +84,9 @@ const Table = ({ cards, setCards }) => {
             <th>Actions</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="table-body">
           {cards.map((card) => (
-            <tr key={card._id}>
+            <tr key={card._id} className="table-row">
               <td>{card.set}</td>
               <td>{card.name}</td>
               <td>{card.cardNumber}</td>

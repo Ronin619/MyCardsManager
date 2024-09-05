@@ -10,21 +10,32 @@
   margin: 0 auto;
 }
 
-.table th,
+.table-header th {
+  background-color: #0047ab;
+  color: #fff;
+  padding: 10px 15px;
+  text-align: left;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.table-body .table-row {
+  background-color: #ffffff;
+  transition: background-color 0.3s;
+  background-color: #e0e0e0;
+}
+
+.table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #dddddd;
+}
+
+.table-header th,
 .table td {
   text-align: center;
   padding: 3px;
   border: 1px solid #ddd;
   font-size: 16px;
-}
-
-.table th {
-  background-color: #f4f4f4;
-  font-weight: bold;
-}
-
-.table td {
-  background-color: #fff;
 }
 
 .actions {
@@ -34,7 +45,9 @@
 
 .action-icons {
   cursor: pointer;
-  font-size: 20px;
+  margin: 0 5px;
+  font-size: 18px;
+  color: #0047ab;
 }
 
 .action-icon-edit {
@@ -43,4 +56,16 @@
 
 .action-icon-delete {
   color: #d22b2b;
+}
+
+.action-icon-edit:hover ion-icon {
+  color: #4caf50;
+}
+
+.action-icon-delete:hover ion-icon {
+  color: #ffeb3b;
+}
+
+input[type="checkbox"] {
+  transform: scale(1.2);
 }
