@@ -146,3 +146,5 @@ out
 # SSL Certificates
 server.cert
 server.key 
+.vercel
+dist/
