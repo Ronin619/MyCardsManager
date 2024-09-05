@@ -1,17 +1,11 @@
 .page-container {
   margin: 0;
   min-height: 100vh;
-  background: linear-gradient(to bottom, #36454f, #228b22);
+  background: linear-gradient(to bottom, #0a3d62, #16a085);
 }
 
 .totalValue-navbar {
-  font-family: "Pokemon Solid", sans-serif;
   letter-spacing: 4px;
-  background-color: #ec5800;
-}
-
-.page-container .dropdown-menu {
-  background-color: #ec5800;
 }
 
 .totalValue-container {
@@ -25,17 +19,33 @@
   margin-right: auto;
   margin-top: 100px;
   border: 2px;
-  background: linear-gradient(to bottom, #228b22, #36454f, #228b22);
+  background: linear-gradient(to bottom, #16a085, #0a3d62);
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 h2 {
-  letter-spacing: 2px;
+  letter-spacing: 3px;
   text-align: center;
   padding: 10px 20px;
   line-height: 1.5;
   color: #fff;
+}
+
+.total-value {
+  font-family: "sans-serif";
+  font-size: 2rem;
+  color: #cdaa4b;
+}
+
+.totalValue-navbar,
+h2 {
+  font-family: "Pokemon Solid", sans-serif;
+}
+
+.totalValue-navbar,
+.page-container .dropdown-menu {
+  background-color: #cdaa4b;
 }
 
 @media (max-width: 600px) {
@@ -46,7 +56,7 @@ h2 {
     margin-left: auto;
     margin-right: auto;
     margin-top: 100px;
-    border: 2px;
+    border: 2px solid #b8b8b8;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   }
 }

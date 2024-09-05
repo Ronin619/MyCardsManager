@@ -36,7 +36,10 @@ const TotalValue = () => {
         <HamburgerMenu className="totalValue-dropDown" />
       </Navbar>
       <div className="totalValue-container">
-        <h2>Your collection is worth: ${cardsTotalValue}</h2>
+        <h2>
+          Your collection is worth:{" "}
+          <span className="total-value">${cardsTotalValue}</span>
+        </h2>
       </div>
     </div>
   );
