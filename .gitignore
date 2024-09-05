@@ -8,8 +8,6 @@ lerna-debug.log*
 .pnpm-debug.log*
 
 node_modules
-dist
-dist-ssr
 *.local
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
@@ -95,7 +93,6 @@ out
 
 # Nuxt.js build / generate output
 .nuxt
-dist
 
 # Gatsby files
 .cache/
@@ -149,4 +146,3 @@ dist
 # SSL Certificates
 server.cert
 server.key 
-.vercel
