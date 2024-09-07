@@ -37,7 +37,7 @@ const Inventory = () => {
     setIsModalOpen(true);
     try {
       const response = await axios.post(
-        "https://localhost:8080/createCard/newCard",
+        "https://tcgvault-backend.onrender.com/createCard/newCard",
         newCard,
         { withCredentials: true }
       );
@@ -51,7 +51,7 @@ const Inventory = () => {
   const showFilteredCards = async (searchInput) => {
     try {
       const response = await axios.get(
-        `https://localhost:8080/filteredCards/filter?search=${searchInput}`,
+        `https://tcgvault-backend.onrender.com/filteredCards/filter?search=${searchInput}`,
         {
           params: { search: searchInput },
           withCredentials: true,
