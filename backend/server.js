@@ -4,7 +4,6 @@ const app = express();
 const mongoose = require("mongoose");
 const cors = require("cors");
 const https = require("https");
-const fs = require("fs");
 const cookieParser = require("cookie-parser");
 const port = process.env.PORT || 8080;
 const mongoURL = process.env.DATABASE_URL;
@@ -14,8 +13,10 @@ const tokenRoutes = require("./src/routes/tokenRoutes");
 const { requireAuth } = require("./src/middleware/requireAuth");
 
 // Load SSL certificates
-const privateKey = fs.readFileSync("./server.key", "utf8");
-const certificate = fs.readFileSync("./server.cert", "utf8");
+const privateKey = Buffer.from(process.env.SSL_KEY, "base64").toString("utf8");
+const certificate = Buffer.from(process.env.SSL_CERT, "base64").toString(
+  "utf8"
+);
 
 const credentials = {
   key: privateKey,
