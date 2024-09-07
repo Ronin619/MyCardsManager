@@ -146,5 +146,7 @@ out
 # SSL Certificates
 server.cert
 server.key 
+server.key.b64
+server.cert.b64
 .vercel
 dist/
