@@ -29,7 +29,7 @@ const httpsServer = https.createServer(credentials, app);
 //middleware
 app.use(
   cors({
-    origin: "https://localhost:5173/",
+    origin: "https://tcgvault.onrender.com",
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
