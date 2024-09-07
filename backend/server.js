@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const https = require("https");
 const cookieParser = require("cookie-parser");
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
 const mongoURL = process.env.DATABASE_URL;
 const cardRoutes = require("./src/routes/cardRoutes");
 const userRoutes = require("./src/routes/userRoutes");
@@ -29,11 +29,15 @@ const httpsServer = https.createServer(credentials, app);
 //middleware
 app.use(
   cors({
-    origin: "https://localhost:5173",
+    origin: "https://localhost:5173/",
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
 );
+
+// Handle preflight requests
+app.options("*", cors());
+
 app.use(cookieParser());
 app.use(express.json());
 
