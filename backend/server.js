@@ -35,6 +35,17 @@ app.use(
   })
 );
 
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "https://tcgvault.onrender.com");
+  res.header("Access-Control-Allow-Credentials", "true");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  res.header("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS");
+  next();
+});
+
 // Handle preflight requests
 app.options("*", cors());
 
@@ -53,14 +64,10 @@ app.use("/createCard", requireAuth, cardRoutes);
 app.use("/deleteCard", requireAuth, cardRoutes);
 app.use("/editCard", requireAuth, cardRoutes);
 
-app.get("/test", (req, res) => {
-  res.send("Hello World");
-});
-
 mongoose
   .connect(mongoURL)
   .then(() => {
-    httpsServer.listen(port, () => {
+    httpsServer.listen(port, "0.0.0.0", () => {
       console.log(`Server is running on port: ${port}`);
     });
   })
