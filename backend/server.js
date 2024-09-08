@@ -29,7 +29,7 @@ const httpsServer = https.createServer(credentials, app);
 //middleware
 app.use(
   cors({
-    origin: "https://tcgvault.onrender.com",
+    origin: ["https://localhost:5173", "https://tcgvault.onrender.com"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
@@ -52,6 +52,10 @@ app.use("/filteredCards", requireAuth, cardRoutes);
 app.use("/createCard", requireAuth, cardRoutes);
 app.use("/deleteCard", requireAuth, cardRoutes);
 app.use("/editCard", requireAuth, cardRoutes);
+
+app.get("/test", (req, res) => {
+  res.send("Hello World");
+});
 
 mongoose
   .connect(mongoURL)
