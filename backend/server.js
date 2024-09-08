@@ -3,7 +3,8 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const cors = require("cors");
-const https = require("https");
+//const https = require("https");
+const http = require("http");
 const cookieParser = require("cookie-parser");
 const port = process.env.PORT || 8080;
 const mongoURL = process.env.DATABASE_URL;
@@ -24,7 +25,8 @@ const credentials = {
 };
 
 // Set up the HTTPS server
-const httpsServer = https.createServer(credentials, app);
+//const httpsServer = https.createServer(credentials, app);
+const httpsServer = http.createServer(credentials, app);
 
 //middleware
 app.use(
