@@ -60,7 +60,7 @@ app.get("/test-cors", (req, res) => {
 mongoose
   .connect(mongoURL)
   .then(() => {
-    httpsServer.listen(port, "0.0.0.0", () => {
+    httpsServer.listen(port, () => {
       console.log(`Server is running on port: ${port}`);
     });
   })
