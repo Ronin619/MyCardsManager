@@ -55,10 +55,6 @@ app.use("/createCard", requireAuth, cardRoutes);
 app.use("/deleteCard", requireAuth, cardRoutes);
 app.use("/editCard", requireAuth, cardRoutes);
 
-app.get("/test-cors", (req, res) => {
-  res.json({ message: "CORS headers are working!" });
-});
-
 mongoose
   .connect(mongoURL)
   .then(() => {
