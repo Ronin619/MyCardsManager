@@ -4,8 +4,10 @@ const app = express();
 const mongoose = require("mongoose");
 const cors = require("cors");
 const https = require("https");
+const http = require("http");
 const cookieParser = require("cookie-parser");
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 10000;
+const httpPort = process.env.HTTPPORT || 443;
 const mongoURL = process.env.DATABASE_URL;
 const cardRoutes = require("./src/routes/cardRoutes");
 const userRoutes = require("./src/routes/userRoutes");
@@ -62,6 +64,9 @@ mongoose
   .then(() => {
     httpsServer.listen(port, () => {
       console.log(`Server is running on port: ${port}`);
+    });
+    http.createServer(app).listen(httpPort, "0.0.0.0", () => {
+      console.log(`HTTP Server running on port: ${httpPort}`);
     });
   })
   .catch((error) => {
