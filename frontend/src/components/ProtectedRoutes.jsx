@@ -8,7 +8,7 @@ const ProtectedRoutes = () => {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        await axios.get("https://localhost:8080/verifyToken", {
+        await axios.get("https://tcgvault-backend.onrender.com/verifyToken", {
           withCredentials: true,
         });
         setIsAuthenticated(true);
