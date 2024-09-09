@@ -20,7 +20,7 @@ const Inventory = () => {
     } else {
       try {
         const response = await axios.get(
-          "https://localhost:8080/findAllUsersCards/",
+          "https://tcgvault-backend.onrender.com/findAllUsersCards/",
           {
             withCredentials: true,
           }
