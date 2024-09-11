@@ -49,6 +49,8 @@ const signUpNewUser = async (req, res) => {
 const logInUser = async (req, res) => {
   const { email, password } = req.body;
 
+  const start = Date.now();
+
   try {
     const user = await usersModel.findOne({ email });
     if (!user) {
@@ -68,6 +70,7 @@ const logInUser = async (req, res) => {
     });
 
     res.status(200).json({ message: "Login successful", token });
+    console.log(`Processing time: ${Date.now() - start}ms`);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
