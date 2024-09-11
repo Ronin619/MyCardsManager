@@ -49,32 +49,20 @@ const signUpNewUser = async (req, res) => {
 const logInUser = async (req, res) => {
   const { email, password } = req.body;
 
-  const start = Date.now();
-  console.log("Login request received");
-
   try {
-    console.log("Fetching user");
-    const fetchStart = Date.now();
     const user = await usersModel.findOne({ email });
-    console.log(`Fetch user time: ${Date.now() - fetchStart}ms`);
 
     if (!user) {
       return res.status(400).json({ message: "User not found" });
     }
 
-    console.log("Checking password");
-    const passwordStart = Date.now();
     const passwordMatch = await bcrypt.compare(password, user.password);
-    console.log(`Password check time: ${Date.now() - passwordStart}ms`);
 
     if (!passwordMatch) {
       return res.status(401).json({ message: "Incorrect password" });
     }
 
-    console.log("Generating token");
-    const tokenStart = Date.now();
     const token = createToken(user._id);
-    console.log(`Token generation time: ${Date.now() - tokenStart}ms`);
 
     res.cookie("authToken", token, {
       httpOnly: true,
@@ -83,7 +71,6 @@ const logInUser = async (req, res) => {
     });
 
     res.status(200).json({ message: "Login successful", token });
-    console.log(`Processing time: ${Date.now() - start}ms`);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
