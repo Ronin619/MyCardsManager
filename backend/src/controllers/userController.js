@@ -35,7 +35,7 @@ const signUpNewUser = async (req, res) => {
         "password needs to have a minumum length of 8 characters with 1 character each of uppercase,lowercase, numbers, and symbols."
       );
     }
-    const salt = await bcrypt.genSalt(10);
+    const salt = await bcrypt.genSalt(8);
     const hash = await bcrypt.hash(password, salt);
     const user = await usersModel.create({ email, password: hash });
     const token = createToken(user._id);
