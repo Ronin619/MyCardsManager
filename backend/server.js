@@ -3,7 +3,6 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const cors = require("cors");
-const https = require("https");
 const cookieParser = require("cookie-parser");
 const port = process.env.PORT || 4000;
 const mongoURL = process.env.DATABASE_URL;
@@ -11,20 +10,6 @@ const cardRoutes = require("./src/routes/cardRoutes");
 const userRoutes = require("./src/routes/userRoutes");
 const tokenRoutes = require("./src/routes/tokenRoutes");
 const { requireAuth } = require("./src/middleware/requireAuth");
-
-// Load SSL certificates
-const privateKey = Buffer.from(process.env.SSL_KEY, "base64").toString("utf8");
-const certificate = Buffer.from(process.env.SSL_CERT, "base64").toString(
-  "utf8"
-);
-
-const credentials = {
-  key: privateKey,
-  cert: certificate,
-};
-
-// Set up the HTTPS server
-const httpsServer = https.createServer(credentials, app);
 
 //middleware
 app.use(
@@ -56,7 +41,7 @@ app.use("/editCard", requireAuth, cardRoutes);
 mongoose
   .connect(mongoURL)
   .then(() => {
-    httpsServer.listen(port, () => {
+    app.listen(port, "0.0.0.0", () => {
       console.log(`Server is running on port: ${port}`);
     });
   })
