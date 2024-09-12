@@ -1,6 +1,5 @@
 import { useState } from "react";
 import axios from "axios";
-import Button from "../components/Button";
 import { useNavigate } from "react-router-dom";
 import "../css/signUp.css";
 
@@ -10,10 +9,8 @@ const SignUp = () => {
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
-    console.log("submit clicked!");
     e.preventDefault();
     try {
-      console.log("Email:", email, "Password:", password);
       const response = await axios.post(
         "https://tcgvault-backend.onrender.com/signUp/user",
         {
@@ -51,7 +48,7 @@ const SignUp = () => {
             id="password"
             onChange={(e) => setPassword(e.target.value)}
           />
-          <Button type="submit" text="Sign up" />
+          <button type="submit">Sign up</button>
         </form>
       </div>
     </div>
