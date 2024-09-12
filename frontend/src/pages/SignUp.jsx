@@ -2,28 +2,29 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../css/signUp.css";
+import Button from "../components/Button";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     console.log("Form submitted");
     e.preventDefault();
-    // try {
-    //   const response = await axios.post(
-    //     "https://tcgvault-backend.onrender.com/signUp/user",
-    //     {
-    //       email,
-    //       password,
-    //     }
-    //   );
-    //   console.log("Sign up successful:", response.data);
-    navigate("/home");
-    // } catch (error) {
-    //   console.log("Unsuccessful sign up");
-    // }
+    try {
+      const response = await axios.post(
+        "https://tcgvault-backend.onrender.com/signUp/user",
+        {
+          email,
+          password,
+        }
+      );
+      console.log("Sign up successful:", response.data);
+      navigate("/home");
+    } catch (error) {
+      console.log("Unsuccessful sign up");
+    }
   };
 
   return (
@@ -49,9 +50,7 @@ const SignUp = () => {
             id="password"
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button type="submit" className="signUp-form button">
-            Sign up
-          </button>
+          <Button type="submit" text="Sign up" />
         </form>
       </div>
     </div>
