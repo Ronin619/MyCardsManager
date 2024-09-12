@@ -8,27 +8,22 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     console.log("Form submitted");
     e.preventDefault();
-    try {
-      const response = await axios.post(
-        "https://tcgvault-backend.onrender.com/signUp/user",
-        {
-          email,
-          password,
-        }
-      );
-      console.log("Sign up successful:", response.data);
-      navigate("/home");
-    } catch (error) {
-      console.log("Unsuccessful sign up");
-    }
-  };
-
-  const handledSubmit = (e) => {
-    e.preventDefault();
-    console.log("Simple form submitted!");
+    // try {
+    //   const response = await axios.post(
+    //     "https://tcgvault-backend.onrender.com/signUp/user",
+    //     {
+    //       email,
+    //       password,
+    //     }
+    //   );
+    //   console.log("Sign up successful:", response.data);
+    navigate("/home");
+    // } catch (error) {
+    //   console.log("Unsuccessful sign up");
+    // }
   };
 
   return (
@@ -57,10 +52,6 @@ const SignUp = () => {
           <button type="submit" className="signUp-form button">
             Sign up
           </button>
-        </form>
-        <form onSubmit={handledSubmit}>
-          <input type="text" placeholder="Test" />
-          <button type="submit">Submit</button>
         </form>
       </div>
     </div>
