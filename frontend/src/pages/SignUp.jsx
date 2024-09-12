@@ -8,6 +8,7 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
 
   const handleSubmit = async (e) => {
+    console.log("submit clicked!");
     e.preventDefault();
     try {
       const response = await axios.post(
