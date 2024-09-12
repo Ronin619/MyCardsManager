@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-const Button = ({ text, type = "button", className }) => {
+const Button = ({ text, type, className }) => {
   return (
     <button type={type} className={className}>
       {text}
