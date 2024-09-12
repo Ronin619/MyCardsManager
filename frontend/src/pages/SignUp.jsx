@@ -1,16 +1,19 @@
 import { useState } from "react";
 import axios from "axios";
 import Button from "../components/Button";
+import { useNavigate } from "react-router-dom";
 import "../css/signUp.css";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     console.log("submit clicked!");
     e.preventDefault();
     try {
+      console.log("Email:", email, "Password:", password);
       const response = await axios.post(
         "https://tcgvault-backend.onrender.com/signUp/user",
         {
@@ -19,6 +22,7 @@ const SignUp = () => {
         }
       );
       console.log("Sign up successful:", response.data);
+      navigate("/home");
     } catch (error) {
       console.log("Unsuccessful sign up");
     }
