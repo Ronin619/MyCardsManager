@@ -9,6 +9,7 @@ const SignUp = () => {
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
+    console.log("Form submitted");
     e.preventDefault();
     try {
       const response = await axios.post(
@@ -23,6 +24,11 @@ const SignUp = () => {
     } catch (error) {
       console.log("Unsuccessful sign up");
     }
+  };
+
+  const handledSubmit = (e) => {
+    e.preventDefault();
+    console.log("Simple form submitted!");
   };
 
   return (
@@ -48,7 +54,13 @@ const SignUp = () => {
             id="password"
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button type="submit">Sign up</button>
+          <button type="submit" className="signUp-form button">
+            Sign up
+          </button>
+        </form>
+        <form onSubmit={handledSubmit}>
+          <input type="text" placeholder="Test" />
+          <button type="submit">Submit</button>
         </form>
       </div>
     </div>
