@@ -15,7 +15,7 @@ const HamburgerMenu = () => {
   const handleLogout = async () => {
     try {
       const response = await axios.post(
-        "https://tcgvault-backend.onrender.com/logout/logoutUser",
+        "https:/localhost:8080/logout/logoutUser",
         {},
         { withCredentials: true }
       );

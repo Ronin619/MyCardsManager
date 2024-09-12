@@ -11,7 +11,7 @@ const TotalValue = () => {
     const fetchCardData = async () => {
       try {
         const response = await axios.get(
-          "https://tcgvault-backend.onrender.com/findAllUsersCards/",
+          "https://localhost:8080/findAllUsersCards/",
           {
             withCredentials: true,
           }
