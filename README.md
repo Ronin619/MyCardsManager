@@ -1,5 +1,13 @@
 # TCGVault
 
+Table of Contents
+
+<ul>
+  <li>Introduction</li>
+  <li>Features</li>
+  <li>License</li>
+</ul>
+
 <h2>Introduction</h2>
 
 <p>
@@ -8,7 +16,6 @@ details such as the card name, number, set name, quanity, and current market val
 </p>
 
 <h2>Features</h2>
-
 
 <h3>View your entire card collection</h3>
   
