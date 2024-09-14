@@ -3,9 +3,9 @@
 Table of Contents
 
 <ul>
-  <li>Introduction</li>
-  <li>Features</li>
-  <li>License</li>
+  <li><a href="https://github.com/Ronin619/TCGVault/blob/master/README.md#introduction">Introduction</a></li>
+  <li><a href="https://github.com/Ronin619/TCGVault/blob/master/README.md#features">Features</a></li>
+  <li><a href="https://github.com/Ronin619/TCGVault/blob/master/README.md#license">License</a></li>
 </ul>
 
 <h2>Introduction</h2>
