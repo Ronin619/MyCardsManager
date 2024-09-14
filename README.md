@@ -8,26 +8,26 @@ details such as the card name, number, set name, quanity, and current market val
 <h2>Features</h2>
 
 
-<h1>View your entire card collection</h1>
+<h3>View your entire card collection</h3>
   
 Click the icon to view your entire inventory of cards. Click the icon again to clear the table.
 
-<h1>Adding a new card</h1>
+<h3>Adding a new card</h3>
 
 Click the icon to open a modal.
 Enter the set, name, card number, quantity, and market value. BE SURE TO CLICK SAVE!
 
-<h1>Editing a card</h1>
+<h3>Editing a card</h3>
 
 Click on the icon to open a modal.
 Feel free to edit any card details by changing the inputs under the labels. BE SURE TO CLICK SAVE!
 
-<h1>Deleting a card</h1>
+<h3>Deleting a card</h3>
 
 Click on the icon to delete the selected card.
 WARNING: make sure you are certain that you wish to delete the selected card.
 
-<h1>Filtering cards</h1>
+<h3>Filtering cards</h3>
 
 Enter a keyword in the search bar and click the 
 icon to display all cards in the table matching that keyword.
