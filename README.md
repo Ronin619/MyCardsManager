@@ -32,5 +32,8 @@ WARNING: make sure you are certain that you wish to delete the selected card.
 Enter a keyword in the search bar and click the 
 icon to display all cards in the table matching that keyword.
 
+<h2>License</h2>
+
+<p>This project is licensed under the MIT License. See the <a href="https://github.com/Ronin619/TCGVault/blob/master/LICENSE">License</a> file for details.</p>
 
 
