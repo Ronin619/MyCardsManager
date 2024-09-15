@@ -14,7 +14,7 @@ Table of Contents
   The TCGVault is designed with trading card hobbyist in mind. This application was created to assist hobbyist with keeping an inventory of all the cards in their possession. Hobbyist will be able to store card
 details such as the card name, number, set name, quantity, and current market value.
 </p>
-<ul><bold>Tech stack</bold>
+<ul> <strong>Tech stack</strong>
   <li>JavaScript</li>
   <li>Node JS</li>
    <li>Express</li>
