@@ -15,7 +15,7 @@ Table of Contents
 details such as the card name, number, set name, quantity, and current market value.
 </p>
 <ul> <strong>Tech stack:</strong>
-  </br>
+
   <li>JavaScript</li>
   <li>Node JS</li>
    <li>Express</li>
