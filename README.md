@@ -26,6 +26,13 @@ details such as the card name, number, set name, quantity, and current market va
    <li>Render</li>
 </ul>
 
+![Screenshot 2024-09-15 at 1 31 34 PM 3](https://github.com/user-attachments/assets/a54449e8-b3b8-4355-b272-62b67d8764bd)
+![Screenshot 2024-09-15 at 4 03 19 PM (3)](https://github.com/user-attachments/assets/57b3cdcd-851a-4bbc-b0eb-cacfde6ad7ff)
+![Screenshot 2024-09-15 at 4 00 57 PM (3)](https://github.com/user-attachments/assets/cc013561-e795-4a9c-b7ca-28859fc5e439)
+![Screenshot 2024-09-15 at 4 03 27 PM (3)](https://github.com/user-attachments/assets/2e4e7dcf-e78e-4148-9a69-4fc7499c83dc)
+
+
+
 <h2>Features</h2>
 
 <h3>View your entire card collection</h3>
